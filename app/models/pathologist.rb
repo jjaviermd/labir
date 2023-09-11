@@ -1,0 +1,2 @@
+class Pathologist < ApplicationRecord
+end
