@@ -16,6 +16,7 @@ class CreateCases < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :cases, %i[protocol_number status]
+    add_index :cases, :protocol_number
+    add_index :cases, :status
   end
 end
