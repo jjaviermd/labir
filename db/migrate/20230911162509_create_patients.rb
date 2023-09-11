@@ -11,6 +11,8 @@ class CreatePatients < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :patients, :dni, :f_last_name, :name
+    add_index :patients, :dni
+    add_index :patients, :f_last_name
+    add_index :patients, :name
   end
 end
