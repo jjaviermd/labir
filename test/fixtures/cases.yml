@@ -1,27 +1,32 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  patient: one
-  pathologist: one
-  status: 1
-  macro_description: MyText
-  micro_description: MyText
-  diagnosis: MyText
-  type: 1
-  organ: MyString
-  physician: MyString
-  speciality: MyString
-  protocol_number: MyString
+case_1:
+  patient: carmen
+  pathologist: ariel
+  status: 2
+  type_of_sample: 1
+  organ: piel
+  physician: Palutis
+  speciality: Dermatology
+  protocol_number: 182456
 
-two:
-  patient: two
-  pathologist: two
+case_2:
+  patient: paco
+  pathologist: ariel
   status: 1
-  macro_description: MyText
-  micro_description: MyText
-  diagnosis: MyText
-  type: 1
-  organ: MyString
-  physician: MyString
-  speciality: MyString
-  protocol_number: MyString
+  type_of_sample: 1
+  organ: kidney
+  physician: Obregon
+  speciality: Nefrology
+  protocol_number: 182457
+
+case_3:
+  patient: carmen
+  pathologist: candela
+  status: 3
+  type_of_sample: 2
+  organ: tyroid
+  physician: Tomazo
+  speciality: Surgery
+  protocol_number: 182458
+

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'patients_seed'
+Patient.delete_all
+Pathologist.delete_all
+Case.delete_all
 
-seed_patient
+puts "\n== Seeding the database with fixtures =="
+system('bin/rails db:fixtures:load')

@@ -1,19 +1,35 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  dni: MyString
-  f_last_name: MyString
-  l_last_name: MyString
-  name: MyString
-  phone_number: MyString
-  email: MyString
-  insurance: MyString
+carmen:
+  dni: 94944555
+  f_last_name: Pererira
+  l_last_name: Zabaleta
+  name: Carmen
+  gender: 1
+  phone_number: 555-555-555
+  email: mail@mail.com
+  insurance: colmedica
+  birth_day:  <%= Date.new(1984, 5, 16) %>
 
-two:
-  dni: MyString
-  f_last_name: MyString
-  l_last_name: MyString
-  name: MyString
-  phone_number: MyString
-  email: MyString
-  insurance: MyString
+paco:
+  dni: 89896632
+  f_last_name: Lopez
+  l_last_name: Santos
+  name: Paco
+  gender: 1,
+  phone_number: 555666444
+  email: paco@mail.com
+  insurance: acopo
+  birth_day:  <%= Date.new(1990, 7, 21) %>
+  age: 50
+
+natasha:
+  dni: 45852654
+  f_last_name: Klauss
+  l_last_name: Borja
+  name: Natasha
+  gender: 2
+  phone_number: 555222777
+  email: nata_sha@mail.com
+  insurance: rails
+  birth_day:  <%= Date.new(1992, 8, 2) %>
