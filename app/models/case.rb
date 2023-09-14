@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Class case represent a single case for a biopsy, citology or autopsy.
 class Case < ApplicationRecord
   belongs_to :patient
   belongs_to :pathologist
