@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Labir</h1>
+<p>Pathology reports</p>
+<div class="columns">
+  <div class="column is-two-fifths">
+    <div>
+      <p>Initialize new case</p>
+      <%= button_to "New case",
+              'x',
+              class: 'button is-primary' %>
+    </div>
+    <div>
+      <p>Search case, cases or patient records</p>
+      <div>
+        <%= form_with url: "/search", method: :get do |form| %>
+          <%= form.label :query, "Search for:" %>
+          <%= form.text_field :query %>
+          <%= form.submit "Search", class: "button is-info" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <h2>Cases list</h2>
+    <p>list of recent and search results will be displayed here</p>
+  </div>
+</div>
