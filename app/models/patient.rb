@@ -17,6 +17,10 @@ class Patient < ApplicationRecord
     age.blank? && birth_day?
   end
 
+  def full_name
+    "#{f_last_name} #{l_last_name} #{name}"
+  end
+
   private
 
   def patient_params

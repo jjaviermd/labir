@@ -20,7 +20,28 @@
     </div>
   </div>
   <div class="column">
-    <h2>Cases list</h2>
-    <p>list of recent and search results will be displayed here</p>
+    <h2>Recent cases</h2>
+    <table>
+      <tr>
+        <th>protocol</th>
+        <th>DNI</th>
+        <th>Name</th>
+        <th>Pathologist</th>
+        <th>Type of Sample</th>
+        <th>Status</th>
+        <th>Notes</th>
+      </tr>
+      <%= @cases.each do |c| %>
+        <tr>
+          <td><%= c.protocol_number %></td>
+          <td><%= c.patient.dni %></td>
+          <td><%= c.patient.full_name %></td>
+          <td><%= c.pathologist.full_name %></td>
+          <td><%= c.type_of_sample %></td>
+          <td><%= c.status %></td>
+          <td><%= c.notes %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>

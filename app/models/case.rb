@@ -13,4 +13,5 @@ class Case < ApplicationRecord
   validates :type_of_sample, numericality: { only_integer: true, in: 1..3 }
   validates :protocol_number, uniqueness: true
   validates :organ, presence: true
+  scope :ordered, -> { order(updated_at: :desc) } 
 end
