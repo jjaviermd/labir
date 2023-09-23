@@ -1,4 +1,6 @@
 class CasesController < ApplicationController
+  before_action :set_case, only: %i[show edit update]
+
   def index
   end
 
@@ -15,5 +17,11 @@ class CasesController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def set_case
+    @case = Case.find params[:id]
   end
 end

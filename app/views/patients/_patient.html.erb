@@ -1,0 +1,36 @@
+<div class="patient_data">
+  <table>
+    <tr>
+      <th>First last name</th>
+      <td><%= patient.f_last_name %></td>
+      <th>Second last Name</th>
+      <td><%= patient.l_last_name %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= patient.name %></td>
+      <th>Gender</th>
+      <td><%= patient.gender %></td>
+    </tr>
+    <tr>
+      <th>Date of birth</th>
+      <td><%= patient.birth_day %></td>
+      <th>Age</th>
+      <td><%= patient.age %></td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td><%= patient.phone_number %></td>
+      <th>E-mail</th>
+      <td><%= patient.email %></td>
+    </tr>
+    <tr>
+      <th>DNI</th>
+      <td><%= patient.dni %></td>
+      <th>Insurance</th>
+      <td><%= patient.insurance %></td>
+    </tr>
+  </table>
+  <%= link_to 'Edit Patient info', edit_patient_path(patient), class: 'button is-danger' %>
+  <%= link_to 'View Profile', 'x', class: 'button is-info' %>
+</div>

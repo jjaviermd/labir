@@ -1,14 +1,16 @@
-<h1>Labir</h1>
-<p>Pathology reports</p>
+<div class="container has-text-centered">
+  <h1>Labir</h1>
+  <p>Pathology reports</p>
+</div>
 <div class="columns">
   <div class="column is-two-fifths">
-    <div>
+    <div class="container has-text-centered">
       <p>Initialize new case</p>
       <%= button_to "New case",
               'x',
               class: 'button is-primary' %>
     </div>
-    <div>
+    <div class="container has-text-centered">
       <p>Search case, cases or patient records</p>
       <div>
         <%= form_with url: "/search", method: :get do |form| %>
