@@ -22,26 +22,35 @@
   <div class="column">
     <h2>Recent cases</h2>
     <table>
-      <tr>
-        <th>protocol</th>
-        <th>DNI</th>
-        <th>Name</th>
-        <th>Pathologist</th>
-        <th>Type of Sample</th>
-        <th>Status</th>
-        <th>Notes</th>
-      </tr>
-      <%= @cases.each do |c| %>
+      <thead>
         <tr>
-          <td><%= c.protocol_number %></td>
-          <td><%= c.patient.dni %></td>
-          <td><%= c.patient.full_name %></td>
-          <td><%= c.pathologist.full_name %></td>
-          <td><%= c.type_of_sample %></td>
-          <td><%= c.status %></td>
-          <td><%= c.notes %></td>
+          <th>protocol</th>
+          <th>DNI</th>
+          <th>Name</th>
+          <th>Pathologist</th>
+          <th>Type of Sample</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Actions</th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <%= @cases.each do |c| %>
+          <tr>
+            <td><%= c.protocol_number %></td>
+            <td><%= c.patient.dni %></td>
+            <td><%= c.patient.full_name %></td>
+            <td><%= c.pathologist.full_name %></td>
+            <td><%= c.type_of_sample %></td>
+            <td><%= c.status %></td>
+            <td><%= c.notes %></td>
+            <td>
+              <%= link_to "Show", case_path(c), class: 'button is-info' %>
+              <%= link_to "Edit", edit_case_path(c), class: 'button is-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

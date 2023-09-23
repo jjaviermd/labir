@@ -7,6 +7,5 @@ class Pathologist < ApplicationRecord
 
   def full_name
     "#{last_name} #{name}"
-    
   end
 end
