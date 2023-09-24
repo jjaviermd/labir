@@ -1,0 +1,55 @@
+<%= form_with model: @case do |f| %>
+  <fieldset>
+    <div>
+      <%= f.label :protocol_number, 'Protocol Number' %>
+      <%= f.text_field :protocol_number %>
+    </div>
+    <div>
+      <%= f.label :status, 'Status' %>
+      <%= f.select :status, [['Gross sectioning', 1], ['Histotecnology', 2], ['Microscopic examination', 3], ['Diagnosed', 4]] %>
+    </div>
+    <div>
+      <%= f.label :organ, 'Organ' %>
+      <%= f.text_field :organ %>
+    </div>
+    <div>
+      <%= f.label :type_of_sample, 'Sample' %>
+      <%= f.select :type_of_sample, [['Biopsy', 1], ['Citology', 2], ['Autopsy', 3]] %>
+    </div>
+    <div>
+      <%= f.label :physician, 'Physiscian' %>
+      <%= f.text_field :physician %>
+    </div>
+    <div>
+      <%= f.label :speciality, 'Speciality' %>
+      <%= f.text_field :speciality %>
+    </div>
+    <div>
+      <%= f.label :pathologist_id, 'Pathologist' %>
+      <%= f.collection_select :pathologist_id, Pathologist.order(:last_name), :name, :full_name %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div>
+      <%= f.label :macro_description %>
+      <%= f.text_area :macro_description %>
+    </div>
+    <div>
+      <%= f.label :micro_description %>
+      <%= f.text_area :micro_description %>
+    </div>
+    <div>
+      <%= f.label :diagnosis, 'Diagnosis' %>
+      <%= f.text_area :diagnosis %>
+    </div>
+    <div>
+      <%= f.label :notes %>
+      <%= f.text_field :notes %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div>
+      <%= f.submit%>
+    </div>
+  </fieldset>
+<% end %>
