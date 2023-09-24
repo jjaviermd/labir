@@ -9,7 +9,9 @@ class CasesController < ApplicationController
 
   def create; end
 
-  def edit; end
+  def edit
+    @patient = @case.patient
+  end
 
   def update; end
 
