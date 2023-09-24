@@ -26,18 +26,18 @@
     <table>
       <thead>
         <tr>
-          <th>protocol</th>
-          <th>DNI</th>
-          <th>Name</th>
-          <th>Pathologist</th>
-          <th>Type of Sample</th>
-          <th>Status</th>
-          <th>Notes</th>
+          <th>Protocol number</th>
+          <th>DNI number</th>
+          <th>Patient name</th>
+          <th>Pathologist name</th>
+          <th>Type of sample</th>
+          <th>Case status</th>
+          <th>Case notes</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <%= @cases.each do |c| %>
+        <% @cases.each do |c| %>
           <tr>
             <td><%= c.protocol_number %></td>
             <td><%= c.patient.dni %></td>
