@@ -93,7 +93,8 @@
   </fieldset>
   <fieldset>
     <div>
-      <%= f.submit 'Acept and save'%>
+      <%= f.submit 'Acept and save', class: 'button is-success' %>
+      <%= link_to 'Cancel', root_path, class:'button is-warning' %>
     </div>
   </fieldset>
 <% end %>
