@@ -43,8 +43,8 @@
             <td><%= c.patient.dni %></td>
             <td><%= c.patient.full_name %></td>
             <td><%= c.pathologist.full_name %></td>
-            <td><%= c.type_of_sample %></td>
-            <td><%= c.status %></td>
+            <td><%= c.type_of_sample.capitalize %></td>
+            <td><%= c.status.split('_').join(' ').capitalize %></td>
             <td><%= c.notes %></td>
             <td>
               <%= link_to "Show", case_path(c), class: 'button is-info' %>
