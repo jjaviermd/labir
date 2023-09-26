@@ -41,7 +41,7 @@
   </div>
   <div>
     <%= p_f.submit 'Acept and save', class: 'button is-success' %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : default_path, class:'button is-warning' %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'button is-warning' %>
     <%# link should redirect somwere else %>
   </div>
 <% end %>
