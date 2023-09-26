@@ -1,3 +1,4 @@
 <h1>Update case</h1>
 <p>You can also edit corresponding patient info.</p>
-<%= render 'case_form' %>
+<%= render 'patients/patient', patient: @case.patient %>
+<%= render 'case_form', my_case: @case %>
