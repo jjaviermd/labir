@@ -1,4 +1,14 @@
 <%= form_with model: patient do |p_f| %>
+  <% if patient.errors.any? %>
+    <div>
+      <h2> <%= pluralize(patient.errors.count,'error') %> prohibited this Patient from be saved:</h2>
+      <ul>
+        <% patient.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
     <%= p_f.label :dni, 'DNI' %>
     <%= p_f.text_field :dni %>
@@ -17,7 +27,11 @@
   </div>
   <div>
     <%= p_f.label :gender, 'Gender' %>
-    <%= p_f.text_field :gender %>
+    <%# p_f.text_field :gender %>
+    <%= p_f.radio_button :gender, 'female' %>
+    <%= p_f.label :gender_female, 'Female' %>
+    <%= p_f.radio_button :gender, 'male' %>
+    <%= p_f.label :gender_male, 'Male' %>
   </div>
   <div>
     <%= p_f.label :birth_day, 'Date of birth' %>

@@ -1,4 +1,14 @@
 <%= form_with model: my_case do |f| %>
+  <% if my_case.errors.any? %>
+    <div>
+      <h2> <%= pluralize(my_case.errors.count,'error') %> prohibited this case from be saved:</h2>
+      <ul>
+        <% my_case.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <fieldset>
     <div>
       <%= f.label :patient_id, 'Patient' %>
@@ -14,7 +24,7 @@
     </div>
     <div>
       <%= f.label :status, 'Status' %>
-      <%= f.select :status, [['Gross sectioning', 1], ['Histotecnology', 2], ['Microscopic examination', 3], ['Diagnosed', 4]] %>
+      <%= f.select :status, [['Gross sectioning', 'gross_examination'], ['Histotecnology', 'histotechnology'], ['Microscopic examination', 'microscopic_examination'], ['Diagnosed', 'diagnosed']] %>
     </div>
     <div>
       <%= f.label :organ, 'Organ' %>
@@ -22,7 +32,13 @@
     </div>
     <div>
       <%= f.label :type_of_sample, 'Sample' %>
-      <%= f.select :type_of_sample, [['Biopsy', 1], ['Citology', 2], ['Autopsy', 3]] %>
+      <%# f.select :type_of_sample, [['Biopsy', 1], ['Citology', 2], ['Autopsy', 3]] %>
+      <%= f.radio_button :type_of_sample, 'biopsy' %>
+      <%= f.label :type_of_sample_biopsy, 'Biopsy' %>
+      <%= f.radio_button :type_of_sample, 'citology' %>
+      <%= f.label :type_of_sample_citology, 'Citology' %>
+      <%= f.radio_button :type_of_sample, 'autopsy' %>
+      <%= f.label :type_of_sample_autopsy, 'Autopsy' %>
     </div>
     <div>
       <%= f.label :physician, 'Physician' %>
