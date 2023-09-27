@@ -1,6 +1,14 @@
 <%= form_with model: my_case do |f| %>
   <fieldset>
     <div>
+      <%= f.label :patient_id, 'Patient' %>
+      <%= f.collection_select :patient_id, Patient.order(:f_last_name), :id, :full_name %>
+    </div>
+    <div>
+      <%= f.label :pathologist_id, 'Patholgist in charge' %>
+      <%= f.collection_select :pathologist_id, Pathologist.order(:last_name), :id, :full_name %>
+    </div>
+    <div>
       <%= f.label :protocol_number, 'Protocol Number' %>
       <%= f.text_field :protocol_number %>
     </div>
@@ -23,10 +31,6 @@
     <div>
       <%= f.label :speciality, 'Speciality' %>
       <%= f.text_field :speciality %>
-    </div>
-    <div>
-      <%= f.label :pathologist_id, 'Pathologist' %>
-      <%= f.collection_select :pathologist_id, Pathologist.order(:last_name), :name, :full_name %>
     </div>
   </fieldset>
   <fieldset>
