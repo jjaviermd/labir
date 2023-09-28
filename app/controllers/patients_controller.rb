@@ -1,7 +1,9 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[show edit update]
 
-  def index; end
+  def index
+    @patient = Patient.find_by(dni: params[:patient_search])
+  end
 
   def show; end
 
