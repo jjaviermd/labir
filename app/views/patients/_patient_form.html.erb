@@ -1,14 +1,5 @@
 <%= form_with model: patient do |p_f| %>
-  <% if patient.errors.any? %>
-    <div>
-      <h2> <%= pluralize(patient.errors.count,'error') %> prohibited this Patient from be saved:</h2>
-      <ul>
-        <% patient.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'layouts/form_messages', object: patient %>
   <div>
     <%= p_f.label :dni, 'DNI' %>
     <%= p_f.text_field :dni %>

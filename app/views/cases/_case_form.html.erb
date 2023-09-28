@@ -1,14 +1,5 @@
 <%= form_with model: my_case do |f| %>
-  <% if my_case.errors.any? %>
-    <div>
-      <h2> <%= pluralize(my_case.errors.count,'error') %> prohibited this case from be saved:</h2>
-      <ul>
-        <% my_case.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'layouts/form_messages', object: my_case %>
   <fieldset>
     <div>
       <%= f.label :patient_id, 'Patient' %>
