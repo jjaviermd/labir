@@ -6,7 +6,7 @@ class Patient < ApplicationRecord
   enum :gender, male: 1, female: 2
   validates :dni, presence: true, uniqueness: true
   validates :f_last_name, :name, presence: true
-  # validates :gender, numericality: { only_integer: true, in: 1..2 }
+  validates :gender, inclusion: { in: %w[male female] }
   validates :birth_day, comparison: { less_than_or_equal_to: Date.today }
   before_save :calculate_age, if: :age_and_birth_day?
   # Returns true if birth_day exist while age dont.
