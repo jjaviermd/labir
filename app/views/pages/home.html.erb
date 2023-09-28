@@ -23,36 +23,6 @@
   </div>
   <div class="column">
     <h2>Recent cases</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Protocol number</th>
-          <th>DNI number</th>
-          <th>Patient name</th>
-          <th>Pathologist name</th>
-          <th>Type of sample</th>
-          <th>Case status</th>
-          <th>Case notes</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @cases.each do |c| %>
-          <tr>
-            <td><%= c.protocol_number %></td>
-            <td><%= c.patient.dni %></td>
-            <td><%= c.patient.full_name %></td>
-            <td><%= c.pathologist.full_name %></td>
-            <td><%= c.type_of_sample.capitalize %></td>
-            <td><%= c.status.split('_').join(' ').capitalize %></td>
-            <td><%= c.notes %></td>
-            <td>
-              <%= link_to "Show", case_path(c), class: 'button is-info' %>
-              <%= link_to "Edit", edit_case_path(c), class: 'button is-danger' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'cases/cases_table', cases: @cases %>
   </div>
 </div>
