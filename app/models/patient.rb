@@ -3,6 +3,7 @@
 # Class patient represents a patient wich submmits biopsys and such.
 class Patient < ApplicationRecord
   has_many :cases
+  accepts_nested_attributes_for :cases
   enum :gender, male: 1, female: 2
   validates :dni, presence: true, uniqueness: true
   validates :f_last_name, :name, presence: true

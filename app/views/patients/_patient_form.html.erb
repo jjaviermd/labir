@@ -44,6 +44,8 @@
     <%= p_f.label :insurance, 'Insurance' %>
     <%= p_f.text_field :insurance %>
   </div>
+  <%= p_f.fields_for :cases do %>
+  <% end %>
   <div>
     <%= p_f.submit 'Acept and save', class: 'button is-success' %>
     <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'button is-warning' %>

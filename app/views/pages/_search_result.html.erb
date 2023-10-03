@@ -1,5 +1,7 @@
 <% if @patient %>
   <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id} %>
 <% else %>
-  <%= render html: content_tag(:div, content_tag(:h4, "Patient not in database"))%>
+  <div>
+    <p>Patient not found! Create <%= link_to 'New patient and case', new_patient_path %></p>
+  </div>
 <% end %>
