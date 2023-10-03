@@ -1,3 +1,4 @@
+<%# this partial can be safely removed %>
 <%= form_with model: my_case do |f| %>
   <%= render 'layouts/form_messages', object: my_case %>
   <fieldset>
@@ -26,7 +27,6 @@
     </div>
     <div>
       <%= f.label :type_of_sample, 'Sample' %>
-      <%# f.select :type_of_sample, [['Biopsy', 1], ['Citology', 2], ['Autopsy', 3]] %>
       <%= f.radio_button :type_of_sample, 'biopsy' %>
       <%= f.label :type_of_sample_biopsy, 'Biopsy' %>
       <%= f.radio_button :type_of_sample, 'citology' %>

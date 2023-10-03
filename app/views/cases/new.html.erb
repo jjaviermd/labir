@@ -2,14 +2,24 @@
 <p>If patient is not in database please regiter a new patient en the next link</p>
 <%# link_to "New Patient", new_patient_path, class: 'button is-primary' %>
 <!--
-<%= form_with url: '/patients', method: :get do |f| %>
+<%= form_with url: '/patients', method: :get do |c_f| %>
   <div>
-    <%= f.label :dni, "Patien DNI" %>
-    <%= f.text_field :dni %>
+    <%= c_f.label :dni, "Patien DNI" %>
+    <%= c_f.text_field :dni %>
   </div>
   <div>
-    <%= f. submit "Buscar" %>
+    <%= c_f. submit "Buscar" %>
   </div>
 <% end %>
 -->
-<%= render 'case_form', my_case: @case %>
+<%= form_with model: @case do |c_f| %>
+  <%= render 'layouts/form_messages', object: @case %>
+  <fieldset>
+    <%= c_f.hidden_field :patient_id, value: params[:patient_id] %>
+    <%= render 'case_subform', c_f: c_f %>
+    <div>
+      <%= c_f.submit 'Acept and save', class: 'button is-success' %>
+      <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'button is-warning' %>
+    </div>
+  </fieldset>
+<% end %>

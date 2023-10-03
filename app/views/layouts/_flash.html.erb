@@ -1,5 +1,11 @@
-<% flash.each do |message| %>
-  <div>
-    <%= message %>
-  </div>
+<% flash.each do |name, message| %>
+  <article class=<%= "message is-#{name}" %> >
+    <div class="message-header">
+      <p><%= name.capitalize %></p>
+      <button class="delete" aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+      <%= message %>
+    </div>
+  </article>
 <% end %>
