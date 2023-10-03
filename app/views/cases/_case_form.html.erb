@@ -1,10 +1,13 @@
 <%= form_with model: my_case do |f| %>
   <%= render 'layouts/form_messages', object: my_case %>
   <fieldset>
+    <!--
     <div>
       <%= f.label :patient_id, 'Patient' %>
       <%= f.collection_select :patient_id, Patient.order(:f_last_name), :id, :full_name %>
     </div>
+    -->
+    <%= f.hidden_field :patient_id, value: params[:patient_id] %>
     <div>
       <%= f.label :pathologist_id, 'Patholgist in charge' %>
       <%= f.collection_select :pathologist_id, Pathologist.order(:last_name), :id, :full_name %>
