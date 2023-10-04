@@ -1,15 +1,3 @@
-<%# link_to "New Patient", new_patient_path, class: 'button is-primary' %>
-<!--
-<%= form_with url: '/patients', method: :get do |c_f| %>
-  <div>
-    <%= c_f.label :dni, "Patien DNI" %>
-    <%= c_f.text_field :dni %>
-  </div>
-  <div>
-    <%= c_f. submit "Buscar" %>
-  </div>
-<% end %>
--->
 <%= render 'patients/patient', patient: @patient %>
 <%= form_with model: @case do |c_f| %>
   <%= render 'layouts/form_messages', object: @case %>
