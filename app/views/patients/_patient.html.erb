@@ -1,6 +1,6 @@
 <div>
   <h2>Patient Info</h1>
-  <table>
+  <table class="table">
     <tr>
       <th>First surename</th>
       <td><%= patient.f_last_name %></td>
@@ -32,6 +32,8 @@
       <td><%= patient.insurance %></td>
     </tr>
   </table>
-  <%= link_to 'Edit Patient info', edit_patient_path(patient), class: 'button is-danger' %>
-  <%= link_to 'View Profile', patient_path(patient), class: 'button is-info' %>
+  <div class="field is-grouped">
+    <%= link_to 'Edit Patient info', edit_patient_path(patient), class: 'control button is-danger' %>
+    <%= link_to 'View Profile', patient_path(patient), class: 'control button is-info' %>
+  </div>
 </div>

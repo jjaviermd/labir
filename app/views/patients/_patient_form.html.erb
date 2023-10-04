@@ -1,43 +1,45 @@
-<div>
+<div class="field">
   <%= p_f.label :dni, 'DNI' %>
-  <%= p_f.text_field :dni %>
+  <%= p_f.text_field :dni, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :f_last_name, 'First surname' %>
-  <%= p_f.text_field :f_last_name %>
+  <%= p_f.text_field :f_last_name, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :l_last_name, 'Second surname' %>
-  <%= p_f.text_field :l_last_name %>
+  <%= p_f.text_field :l_last_name, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :name, 'First name' %>
-  <%= p_f.text_field :name %>
+  <%= p_f.text_field :name, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :gender, 'Sex' %>
-  <%= p_f.radio_button :gender, 'female' %>
-  <%= p_f.label :gender_female, 'Female' %>
-  <%= p_f.radio_button :gender, 'male' %>
-  <%= p_f.label :gender_male, 'Male' %>
+  <div class="control">
+    <%= p_f.radio_button :gender, 'female' %>
+    <%= p_f.label :gender_female, 'Female', class: 'radio' %>
+    <%= p_f.radio_button :gender, 'male' %>
+    <%= p_f.label :gender_male, 'Male', class: 'radio' %>
+  </div>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :birth_day, 'Date of birth' %>
   <%= p_f.date_field :birth_day %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :age, 'Age(in years)' %>
-  <%= p_f.number_field :age %>
+  <%= p_f.number_field :age, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :phone_number, 'Phone Number' %>
-  <%= p_f.text_field :phone_number %>
+  <%= p_f.text_field :phone_number, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :email, 'E mail' %>
-  <%= p_f.email_field :email %>
+  <%= p_f.email_field :email, class: 'input' %>
 </div>
-<div>
+<div class="field">
   <%= p_f.label :insurance, 'Insurance' %>
-  <%= p_f.text_field :insurance %>
+  <%= p_f.text_field :insurance, class: 'input' %>
 </div>

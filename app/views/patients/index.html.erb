@@ -1,7 +1,13 @@
  <%= form_with url: '/patients', method: :get do |f| %>
-  <%= f.label :patient_search, 'Patient DNI' %>
-  <%= f.text_field :patient_search %>
-  <%= f.submit 'New Case', class: 'button is-success' %>
+  <div class="field has-addons">
+    <div class="control">
+      <%# f.label :patient_search, 'Patient DNI' %>
+      <%= f.text_field :patient_search, class: 'input', placeholder: 'Patient DNI' %>
+    </div>
+    <div class="control">
+      <%= f.submit 'New Case', class: 'button is-info' %>
+    </div>
+  </div>
 <% end %>
 </div>
 <% if params[:patient_search] %>

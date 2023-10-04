@@ -1,49 +1,63 @@
-<div>
-  <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
-  <%= c_f.collection_select :pathologist_id, Pathologist.order(:last_name), :id, :full_name %>
-</div>
-<div>
-  <%= c_f.label :protocol_number, 'Protocol Number' %>
-  <%= c_f.text_field :protocol_number %>
-</div>
-<div>
-  <%= c_f.label :status, 'Status' %>
-  <%= c_f.select :status, [['Gross sectioning', 'gross_examination'], ['Histotecnology', 'histotechnology'], ['Microscopic examination', 'microscopic_examination'], ['Diagnosed', 'diagnosed']] %>
-</div>
-<div>
-  <%= c_f.label :organ, 'Organ' %>
-  <%= c_f.text_field :organ %>
-</div>
-<div>
-  <%= c_f.label :type_of_sample, 'Sample' %>
-  <%= c_f.radio_button :type_of_sample, 'biopsy' %>
-  <%= c_f.label :type_of_sample_biopsy, 'Biopsy' %>
-  <%= c_f.radio_button :type_of_sample, 'citology' %>
-  <%= c_f.label :type_of_sample_citology, 'Citology' %>
-  <%= c_f.radio_button :type_of_sample, 'autopsy' %>
-  <%= c_f.label :type_of_sample_autopsy, 'Autopsy' %>
-</div>
-<div>
-  <%= c_f.label :physician, 'Physician' %>
-  <%= c_f.text_field :physician %>
-</div>
-<div>
-  <%= c_f.label :speciality, 'Speciality' %>
-  <%= c_f.text_field :speciality %>
-</div>
-<div>
-  <%= c_f.label :macro_description %>
-  <%= c_f.text_area :macro_description %>
-</div>
-<div>
-  <%= c_f.label :micro_description %>
-  <%= c_f.text_area :micro_description %>
-</div>
-<div>
-  <%= c_f.label :diagnosis, 'Diagnosis' %>
-  <%= c_f.text_area :diagnosis %>
-</div>
-<div>
-  <%= c_f.label :notes %>
-  <%= c_f.text_field :notes %>
-</div>
+<fieldset>
+  <div class= "field">
+    <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
+    <div class="control">
+      <div class="select">
+        <%= c_f.collection_select :pathologist_id, Pathologist.order(:last_name), :id, :full_name %>
+      </div>
+    </div>
+  </div>
+  <div class = "field">
+    <%= c_f.label :protocol_number, 'Protocol Number' %>
+    <%= c_f.text_field :protocol_number, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :status, 'Status' %>
+    <div class="control">
+      <div class="select">
+        <%= c_f.select :status, [['Gross sectioning', 'gross_examination'], ['Histotecnology', 'histotechnology'], ['Microscopic examination', 'microscopic_examination'], ['Diagnosed', 'diagnosed']] %>
+      </div>
+    </div>
+  </div>
+  <div class = "field">
+    <%= c_f.label :organ, 'Organ' %>
+    <%= c_f.text_field :organ, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :type_of_sample, 'Sample' %>
+    <div class="control">
+      <%= c_f.radio_button :type_of_sample, 'biopsy' %>
+      <%= c_f.label :type_of_sample_biopsy, 'Biopsy' %>
+      <%= c_f.radio_button :type_of_sample, 'citology' %>
+      <%= c_f.label :type_of_sample_citology, 'Citology' %>
+      <%= c_f.radio_button :type_of_sample, 'autopsy' %>
+      <%= c_f.label :type_of_sample_autopsy, 'Autopsy' %>
+    </div>
+  </div>
+  <div class = "field">
+    <%= c_f.label :physician, 'Physician' %>
+    <%= c_f.text_field :physician, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :speciality, 'Speciality' %>
+    <%= c_f.text_field :speciality, class:"input" %>
+  </div>
+</fieldset>
+<fieldset>
+  <div class = "field">
+    <%= c_f.label :macro_description %>
+    <%= c_f.text_area :macro_description, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :micro_description %>
+    <%= c_f.text_area :micro_description, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :diagnosis, 'Diagnosis' %>
+    <%= c_f.text_area :diagnosis, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :notes %>
+    <%= c_f.text_field :notes, class:"input" %>
+  </div>
+</fieldset>

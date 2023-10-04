@@ -1,5 +1,4 @@
- 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Protocol number</th>
@@ -15,16 +14,16 @@
   <tbody>
     <% cases.each do |c| %>
       <tr>
-        <td><%= c.protocol_number %></td>
+        <th><%= c.protocol_number %></th>
         <td><%= c.patient.dni %></td>
         <td><%= c.patient.full_name %></td>
         <td><%= c.pathologist.full_name %></td>
         <td><%= c.type_of_sample.capitalize %></td>
         <td><%= c.status.split('_').join(' ').capitalize %></td>
         <td><%= c.notes %></td>
-        <td>
-          <%= link_to "Show", case_path(c), class: 'button is-info' %>
-          <%= link_to "Edit", edit_case_path(c), class: 'button is-danger' %>
+        <td class ="field is-grouped">
+          <%= link_to "Show", case_path(c), class: 'control button is-success' %>
+          <%= link_to "Edit", edit_case_path(c), class: 'control button is-info' %>
         </td>
       </tr>
     <% end %>

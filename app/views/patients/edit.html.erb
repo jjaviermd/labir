@@ -2,8 +2,8 @@
 <%= form_with model: @patient do |p_f| %>
   <%= render 'layouts/form_messages', object: @patient %>
   <%= render 'patient_form', p_f: p_f %>
-  <div>
-    <%= p_f.submit 'Acept and save', class: 'button is-success' %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'button is-warning' %>
+  <div class="field is-grouped">
+    <%= p_f.submit 'Acept and save', class: 'control button is-success' %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button is-warning' %>
   </div>
 <% end %>
