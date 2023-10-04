@@ -1,5 +1,3 @@
-<h1>Cases#new</h1>
-<p>If patient is not in database please regiter a new patient en the next link</p>
 <%# link_to "New Patient", new_patient_path, class: 'button is-primary' %>
 <!--
 <%= form_with url: '/patients', method: :get do |c_f| %>
@@ -12,6 +10,7 @@
   </div>
 <% end %>
 -->
+<%= render 'patients/patient', patient: @patient %>
 <%= form_with model: @case do |c_f| %>
   <%= render 'layouts/form_messages', object: @case %>
   <fieldset>
