@@ -1,5 +1,7 @@
 <%= render 'patients/patient', patient:@case.patient %>
+<br>
 <div>
+  <h2 class = "subtitle">Case details</h2>
   <section>
     <table class= 'table'>
       <tr>
@@ -43,7 +45,7 @@
     </table>
   </section>
   <div class="field is-grouped">
-    <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-warning' %>
-    <%= link_to 'Finish and Sign', 'x', class: 'control button is-danger' %>
+    <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
+    <%= link_to 'Finish and Sign', 'x', class: 'control button is-info' %>
   </div>
 </div>

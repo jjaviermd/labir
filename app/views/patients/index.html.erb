@@ -1,7 +1,6 @@
  <%= form_with url: '/patients', method: :get do |f| %>
   <div class="field has-addons">
     <div class="control">
-      <%# f.label :patient_search, 'Patient DNI' %>
       <%= f.text_field :patient_search, class: 'input', placeholder: 'Patient DNI' %>
     </div>
     <div class="control">
@@ -11,6 +10,5 @@
 <% end %>
 </div>
 <% if params[:patient_search] %>
-  <%= params[:patient_search] %>
   <%= render 'pages/search_result' %>
 <% end %>

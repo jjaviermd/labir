@@ -1,7 +1,23 @@
 <% if @patient %>
-  <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id} %>
+  <table class = "table">
+    <thead>
+      <tr>
+        <th>Patient name</th>
+        <th>Patient DNI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id}, class: 'button is-text' %>
+        </td>
+        <td><%= @patient.dni %></td>
+      </tr>
+    </tbody>
+  </table>
 <% else %>
-  <div>
-    <p>Patient not found! Create <%= link_to 'New patient and case', new_patient_path %></p>
+  <div class="notification">
+    <p class ="title" >Patient not found!</p>
+    <%= link_to 'Create new patient and case', new_patient_path %>
   </div>
 <% end %>
