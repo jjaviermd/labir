@@ -9,13 +9,10 @@ class Patient < ApplicationRecord
   validates :f_last_name, :name, presence: true
   validates :gender, inclusion: { in: %w[male female] }
   validates :birth_day, comparison: { less_than_or_equal_to: Date.today }
-  before_save :calculate_age, if: :age_and_birth_day?
-  # Returns true if birth_day exist while age dont.
-  def age_and_birth_day?
-    age.blank? && birth_day?
-  end
+  before_save :calculate_age
 
   def full_name
+    # return patients full name.
     "#{f_last_name} #{l_last_name} #{name}"
   end
 
