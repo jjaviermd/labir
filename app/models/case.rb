@@ -14,4 +14,10 @@ class Case < ApplicationRecord
   validates :protocol_number, uniqueness: true
   validates :organ, presence: true
   scope :ordered, -> { order(updated_at: :desc) }
+  before_save :set_status
+
+  def set_status
+    self.status = 'histotechnology' if macro_description? && !micro_description? && !diagnosis?
+    self.status = 'diagnosed' if macro_description? && micro_description? && diagnosis?
+  end
 end
