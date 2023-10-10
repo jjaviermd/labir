@@ -1,8 +1,44 @@
-<h1><%= @pathologist. full_name %></h1>
-<ul>
-  <% @pathologist.cases.each do |c| %>
-    <li>
-      <%=c.protocol_number  %>
-    </li>
-  <% end %>
-</ul>
+<h1><%= "#{@pathologist.full_name}`s Profile" %> </h1>
+<table class="table">
+  <tr>
+    <th>Surename</th>
+    <td><%= @pathologist.last_name %></td>
+    <th>Name</th>
+    <td><%= @pathologist.name %></td>
+    <th>Registry Number</th>
+    <td>00000</td>
+  </tr>
+  <tr>
+    <th>Pending cases</th>
+    <td><%= @pending_cases.count %></td>
+    <th>Diagnosed cases</th>
+    <td><%= @finished_cases.count%></td>
+    <th>Total cases</th>
+    <td><%= @pathologist.cases.count %></td>
+  </tr>
+</table>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Protocol number</th>
+      <th>Patient DNI</th>
+      <th>Patient Name</th>
+      <th>Case status</th>
+      <th>Acytions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pathologist.cases.each do |c| %>
+      <tr>
+        <th><%= c.protocol_number %></th>
+        <td><%= c.patient.dni %></td>
+        <td><%= c.patient.full_name %></td>
+        <td><%= c.status.split('_').join(' ').capitalize %></td>
+        <td class ="field is-grouped">
+          <%= link_to "Show", case_path(c), class: 'control button is-success' %>
+          <%= link_to "Edit", edit_case_path(c), class: 'control button is-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
