@@ -16,8 +16,8 @@
       <tr>
         <th><%= c.protocol_number %></th>
         <td><%= c.patient.dni %></td>
-        <td><%= c.patient.full_name %></td>
-        <td><%= c.pathologist.full_name %></td>
+        <td><%= link_to c.patient.full_name, patient_path(c.patient) %></td>
+        <td><%= link_to c.pathologist.full_name, pathologist_path(c.pathologist) %></td>
         <td><%= c.type_of_sample.capitalize %></td>
         <td><%= c.status.split('_').join(' ').capitalize %></td>
         <td><%= c.notes %></td>

@@ -32,7 +32,7 @@
       <tr>
         <th><%= c.protocol_number %></th>
         <td><%= c.patient.dni %></td>
-        <td><%= c.patient.full_name %></td>
+        <td><%= link_to c.patient.full_name, patient_path(c.patient) %></td>
         <td><%= c.status.split('_').join(' ').capitalize %></td>
         <td class ="field is-grouped">
           <%= link_to "Show", case_path(c), class: 'control button is-success' %>
