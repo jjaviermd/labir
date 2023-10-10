@@ -1,0 +1,18 @@
+<%= form_with model: pathologist do |pa_f| %>
+  <div class= 'field'>
+    <%= pa_f.label :last_name, 'Last name' %>
+    <%= pa_f.text_field :last_name, class: 'input' %>
+  </div>
+  <div class= 'field'>
+    <%= pa_f.label :name %>
+    <%= pa_f.text_field :name, class: 'input' %>
+  </div>
+  <div class= 'field'>
+    <%= pa_f.label :sign %>
+    <%= pa_f.file_field :sign %>
+  </div>
+  <div class='field is-grouped' >
+    <%= pa_f.submit 'Acept and save', class: 'control button is-success' %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
+  </div>
+<% end %>

@@ -1,2 +1,8 @@
-<h1>Pathologists#show</h1>
-<p>Find me in app/views/pathologists/show.html.erb</p>
+<h1><%= @pathologist. full_name %></h1>
+<ul>
+  <% @pathologist.cases.each do |c| %>
+    <li>
+      <%=c.protocol_number  %>
+    </li>
+  <% end %>
+</ul>

@@ -18,8 +18,7 @@ class CasesController < ApplicationController
     if @case.save
       redirect_to case_path(@case)
       flash[:success] =
-        "#{@patient.full_name}`s new case have been created.
-        Protocol number #{@case.protocol_number}."
+        "#{@patient.full_name}`s new case have been created. Protocol number #{@case.protocol_number}."
     else
       flash.now[:danger] = 'Something went wrong and case was not created.'
       render :new, status: :unprocessable_entity
