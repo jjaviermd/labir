@@ -7,9 +7,18 @@
     <%= pa_f.label :name %>
     <%= pa_f.text_field :name, class: 'input' %>
   </div>
-  <div class= 'field'>
-    <%= pa_f.label :sign %>
-    <%= pa_f.file_field :sign %>
+  <div class="field file is-boxed is-normal">
+    <label class="file-label">
+      <%= pa_f.file_field :sign, class: 'file-input' %>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="material-symbols-outlined">upload_file</i>
+        </span>
+        <span class="file-label">
+          Sign image file
+        </span>
+      </span>
+    </label>
   </div>
   <div class='field is-grouped' >
     <%= pa_f.submit 'Acept and save', class: 'control button is-success' %>
