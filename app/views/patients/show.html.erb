@@ -1,3 +1,6 @@
 <%= render 'patient', patient: @patient %>
 <br>
-<%= render 'cases/cases_table', cases: @patient.cases %>
+<div>
+  <h2 class="subtitle">Patient cases</h2>
+  <%= render 'cases/cases_table', cases: @patient.cases %>
+</div>
