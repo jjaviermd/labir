@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PathologistsController < ApplicationController
   before_action :set_pathologist, only: %i[edit update destroy]
   def index
