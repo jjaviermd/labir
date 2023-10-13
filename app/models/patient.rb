@@ -2,6 +2,7 @@
 
 # Class patient represents a patient wich submmits biopsys and such.
 class Patient < ApplicationRecord
+  include Documentable
   has_many :cases
   accepts_nested_attributes_for :cases
   enum :gender, male: 1, female: 2
@@ -25,14 +26,14 @@ class Patient < ApplicationRecord
     ]
   end
 
-  def pdf_table(document = pdf)
-    document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
-      row(0).borders = [:top]
-      row(-1).borders = [:bottom]
-      column(0).font_style = :bold
-      column(2).font_style = :bold
-    end
-  end
+  # def pdf_table(document = pdf)
+  #   document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
+  #     row(0).borders = [:top]
+  #     row(-1).borders = [:bottom]
+  #     column(0).font_style = :bold
+  #     column(2).font_style = :bold
+  #   end
+  # end
 
   private
 
