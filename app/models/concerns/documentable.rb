@@ -12,6 +12,7 @@ module Documentable
         column(0).font_style = :bold
         column(2).font_style = :bold
       end
+      document.move_down 20
     end
   end
 

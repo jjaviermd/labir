@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class PatientsController < ApplicationController
-  before_action :set_patient, only: %i[show edit update]
+  before_action :set_patient, only: %i[edit update]
 
   def index
     @patient = Patient.find_by(dni: params[:patient_search])
   end
 
-  def show; end
+  def show
+    @patient = Patient.includes(cases: [:pathologist]).find params[:id]
+  end
 
   def new
     @patient = Patient.new

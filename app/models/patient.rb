@@ -20,20 +20,11 @@ class Patient < ApplicationRecord
   def table_data
     [
       ['Patient name:', full_name.to_s, 'Patient DNI:', dni.to_s],
-      ['Date of birth:', birth_day.to_s, 'Age:', age.to_s],
+      ['Date of birth:', birth_day.to_s, 'Age:', "#{age} Years old"],
       ['Sex:', gender.to_s, 'Insurance:', insurance.to_s],
       ['Phone Number:', phone_number.to_s, 'E-mail:', email.to_s]
     ]
   end
-
-  # def pdf_table(document = pdf)
-  #   document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
-  #     row(0).borders = [:top]
-  #     row(-1).borders = [:bottom]
-  #     column(0).font_style = :bold
-  #     column(2).font_style = :bold
-  #   end
-  # end
 
   private
 

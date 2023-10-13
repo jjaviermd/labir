@@ -43,19 +43,11 @@ class CasesController < ApplicationController
   def sign_inform
     pdf = Prawn::Document.new
     @patient.pdf_table(pdf)
-    pdf.move_down 20
     @case.pdf_table(pdf)
-    pdf.move_down 20
-    pdf.text 'Macroscopic description:', style: :bold
-    pdf.text @case.macro_description
-    pdf.move_down 10
-    pdf.text 'Microscopic description:', style: :bold
-    pdf.text @case.micro_description
-    pdf.move_down 10
-    pdf.text 'Diagnosis', style: :bold
-    pdf.text @case.diagnosis
+    @case.description_text(pdf)
     @pathologist.sign_report(pdf)
-    send_data(pdf.render, filename: "#{@case.protocol_number}_#{@patient.full_name}.pdf",
+    send_data(pdf.render, filename:
+                            "#{@case.protocol_number}_#{@patient.full_name.split(' ').map(&:downcase).join('_')}.pdf",
                           type: 'application/pdf',
                           disposition: 'inline')
   end

@@ -25,14 +25,16 @@ class Case < ApplicationRecord
     ]
   end
 
-  # def pdf_table(document = pdf)
-  #   document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
-  #     row(0).borders = [:top]
-  #     row(-1).borders = [:bottom]
-  #     column(0).font_style = :bold
-  #     column(2).font_style = :bold
-  #   end
-  # end
+  def description_text(document = pdf)
+    document.text 'Macroscopic description:', style: :bold
+    document.text macro_description
+    document.move_down 10
+    document.text 'Microscopic description:', style: :bold
+    document.text micro_description
+    document.move_down 10
+    document.text 'Diagnosis', style: :bold
+    document.text diagnosis
+  end
 
   def set_status
     self.status = 'histotechnology' if macro_description? && !micro_description? && !diagnosis?

@@ -12,19 +12,19 @@
         <th>Protocol Number</th>
         <td><%= @case.protocol_number %></td>
         <th>Status</th>
-        <td><%= @case.status %></td>
+        <td><%= @case.status.capitalize %></td>
       </tr>
       <tr>
         <th>Organ</th>
-        <td><%= @case.organ %></td>
+        <td><%= @case.organ.capitalize %></td>
         <th>Sample</th>
-        <td><%= @case.type_of_sample %></td>
+        <td><%= @case.type_of_sample.capitalize %></td>
       </tr>
       <tr>
         <th>Physician</th>
-        <td><%= @case.physician %></td>
+        <td><%= @case.physician.capitalize %></td>
         <th>Speciality</th>
-        <td><%= @case.speciality %></td>
+        <td><%= @case.speciality.capitalize %></td>
       </tr>
     </table>
   </section>
