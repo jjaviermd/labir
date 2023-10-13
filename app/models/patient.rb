@@ -16,6 +16,15 @@ class Patient < ApplicationRecord
     "#{f_last_name} #{l_last_name} #{name}"
   end
 
+  def table_data
+    [
+      ['Patient name:', full_name.to_s, 'Patient DNI:', dni.to_s],
+      ['Date of birth:', birth_day.to_s, 'Age:', age.to_s],
+      ['Sex:', gender.to_s, 'Insurance:', insurance.to_s],
+      ['Phone Number:', phone_number.to_s, 'E-mail:', email.to_s]
+    ]
+  end
+
   private
 
   def calculate_age

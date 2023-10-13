@@ -16,6 +16,14 @@ class Case < ApplicationRecord
   scope :ordered, -> { order(updated_at: :desc) }
   before_save :set_status
 
+  def table_data
+    [
+      ['Protocol Number:', protocol_number.to_s, 'Pathologist:', pathologist.full_name.to_s],
+      ['Type of sample:', type_of_sample.to_s, 'Organ/Site:', organ.to_s],
+      ['Physician:', physician.to_s, 'Speciality:', speciality.to_s]
+    ]
+  end
+
   def set_status
     self.status = 'histotechnology' if macro_description? && !micro_description? && !diagnosis?
     self.status = 'diagnosed' if macro_description? && micro_description? && diagnosis?
