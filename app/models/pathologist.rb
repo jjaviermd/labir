@@ -9,4 +9,13 @@ class Pathologist < ApplicationRecord
   def full_name
     "#{last_name} #{name}"
   end
+
+  def sign_report(document = pdf)
+    document.bounding_box([300, document.cursor - 50], width: 150, height: 150) do
+      sign_image = StringIO.open(sign.download)
+      document.image(sign_image, fit: [100, 100], position: :center)
+      document.text full_name.to_s, align: :center
+      document.text 'MP: 123456', align: :center
+    end
+  end
 end

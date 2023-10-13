@@ -24,6 +24,15 @@ class Case < ApplicationRecord
     ]
   end
 
+  def pdf_table(document = pdf)
+    document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
+      row(0).borders = [:top]
+      row(-1).borders = [:bottom]
+      column(0).font_style = :bold
+      column(2).font_style = :bold
+    end
+  end
+
   def set_status
     self.status = 'histotechnology' if macro_description? && !micro_description? && !diagnosis?
     self.status = 'diagnosed' if macro_description? && micro_description? && diagnosis?

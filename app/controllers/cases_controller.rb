@@ -42,19 +42,9 @@ class CasesController < ApplicationController
 
   def sign_inform
     pdf = Prawn::Document.new
-    pdf.table(@patient.table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
-      row(0).borders = [:top]
-      row(-1).borders = [:bottom]
-      column(0).font_style = :bold
-      column(2).font_style = :bold
-    end
+    @patient.pdf_table(pdf)
     pdf.move_down 20
-    pdf.table(@case.table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
-      row(0).borders = [:top]
-      row(-1).borders = [:bottom]
-      column(0).font_style = :bold
-      column(2).font_style = :bold
-    end
+    @case.pdf_table(pdf)
     pdf.move_down 20
     pdf.text 'Macroscopic description:', style: :bold
     pdf.text @case.macro_description
@@ -64,12 +54,7 @@ class CasesController < ApplicationController
     pdf.move_down 10
     pdf.text 'Diagnosis', style: :bold
     pdf.text @case.diagnosis
-    pdf.bounding_box([300, pdf.cursor - 50], width: 150, height: 150) do
-      sign_image = StringIO.open(@pathologist.sign.download)
-      pdf.image(sign_image, fit: [100, 100], position: :center)
-      pdf.text @pathologist.full_name.to_s, align: :center
-      pdf.text 'MP: 123456', align: :center
-    end
+    @pathologist.sign_report(pdf)
     send_data(pdf.render, filename: "#{@case.protocol_number}_#{@patient.full_name}.pdf",
                           type: 'application/pdf',
                           disposition: 'inline')
