@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.includes(cases: [:pathologist]).find params[:id]
+    @patient = Patient.includes(cases: :pathologist).find params[:id]
   end
 
   def new

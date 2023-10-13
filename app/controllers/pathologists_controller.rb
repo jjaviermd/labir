@@ -7,7 +7,7 @@ class PathologistsController < ApplicationController
   end
 
   def show
-    @pathologist = Pathologist.includes(:cases).find(params[:id])
+    @pathologist = Pathologist.includes(cases: :patient).find(params[:id])
     @pending_cases = @pathologist.cases.not_diagnosed
     @finished_cases = @pathologist.cases.diagnosed
   end
