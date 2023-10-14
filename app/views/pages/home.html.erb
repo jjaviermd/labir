@@ -1,26 +1,26 @@
 <div class="container has-text-centered">
-</div>
-<div class="columns">
-  <div class="column is-two-fifths">
-    <div class="container has-text-centered">
-      <p>Initialize new case</p>
-      <%= link_to "New case",
+  <div class="columns">
+    <div class="column is-one-third">
+      <div class="container has-text-centered">
+        <p>Initialize new case</p>
+        <%= link_to "New case",
               patients_path,
               class: 'button is-success' %>
-    </div>
-    <div class="container has-text-centered">
-      <p>Search case, cases or patient records</p>
-      <div>
-        <%= form_with url: "/search", method: :get do |form| %>
-          <%= form.label :query, "Search for:" %>
-          <%= form.text_field :query, placeholder: 'protocol number, DNI, last name' %>
-          <%= form.submit "Search", class: "button is-info" %>
-        <% end %>
+      </div>
+      <div class="container has-text-centered">
+        <p>Search case, cases or patient records</p>
+        <div>
+          <%= form_with url: "/cases", method: :get do |form| %>
+            <%= form.label :query, "Search for:" %>
+            <%= form.text_field :query, placeholder: 'protocol number, DNI, last name' %>
+            <%= form.submit "Search", class: "button is-info" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="column">
-    <h1 class= "title" >Recent cases</h2>
-    <%= render 'cases/cases_table', cases: @cases %>
+    <div class="column">
+      <h1 class= "title" >Recent cases</h2>
+      <%= render 'cases/cases_table', cases: @cases %>
+    </div>
   </div>
 </div>
