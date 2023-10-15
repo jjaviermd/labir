@@ -5,8 +5,15 @@ class CasesController < ApplicationController
   before_action :set_case_patient_pathologist, only: :sign_inform
 
   def index
-    @cases = if params[:query].present?
-               Case.where('protocol_number LIKE ?', "%#{params[:query]}%")
+    @cases = case params[:scope]
+             when 'protocol_number'
+               Case.joins(:patient, :pathologist).where('protocol_number LIKE ?', "%#{params[:query]}%")
+             when 'dni'
+               Case.joins(:patient, :pathologist).where('dni LIKE ?', "%#{params[:query]}%")
+             when 'patient_last_name'
+               Case.joins(:patient, :pathologist).where('f_last_name LIKE ?', "%#{params[:query]}%")
+             when 'pathologist_last_name'
+               Case.joins(:patient, :pathologist).where('last_name LIKE ?', "%#{params[:query]}%")
              else
                Case.all
              end

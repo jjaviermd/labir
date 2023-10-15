@@ -1,7 +1,7 @@
 <h1>Cases</h1>
 <div>
   <%= form_with url: cases_url, method: :get do |form| %>
-    <%= form.label :query, "Search for:" %>
+    <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
     <%= form.text_field :query, placeholder: 'protocol number, DNI, last name' %>
     <%= form.submit "Search", class: "button is-info" %>
   <% end %>
