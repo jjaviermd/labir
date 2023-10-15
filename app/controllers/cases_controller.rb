@@ -4,7 +4,13 @@ class CasesController < ApplicationController
   before_action :set_case, only: %i[show edit update]
   before_action :set_case_patient_pathologist, only: :sign_inform
 
-  def index; end
+  def index
+    @cases = if params[:query].present?
+               Case.where('protocol_number LIKE ?', "%#{params[:query]}%")
+             else
+               Case.all
+             end
+  end
 
   def show; end
 
