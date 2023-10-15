@@ -1,11 +1,40 @@
 <h1>Cases</h1>
-<div>
-  <%= form_with url: cases_url, method: :get do |form| %>
-    <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
-    <%= form.text_field :query, placeholder: 'protocol number, DNI, last name' %>
-    <%= form.submit "Search", class: "button is-info" %>
-  <% end %>
-</div>
+<%= form_with url: cases_url, method: :get do |form| %>
+  <div class="field has-addons">
+    <div class="control">
+      <span class="select">
+        <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
+      </span>
+    </div>
+    <div class="control">
+      <%= form.text_field :query, class: 'input', placeholder: 'protocol number, DNI, last name' %>
+    </div>
+    <div class="control">
+      <%= form.submit "Search", class: "button is-info" %>
+    </div>
+  </div>
+<% end %>
+<br>
 <div>
   <%= render "cases_table", cases: @cases %>
+</div>
+<br>
+<div class="field has-addons">
+  <p class="control">
+    <span class="select">
+      <select>
+        <option>$</option>
+        <option>£</option>
+        <option>€</option>
+      </select>
+    </span>
+  </p>
+  <p class="control">
+    <input class="input" type="text" placeholder="Amount of money">
+  </p>
+  <p class="control">
+    <a class="button">
+      Transfer
+    </a>
+  </p>
 </div>

@@ -1,4 +1,4 @@
- <%= form_with url: '/patients', method: :get do |f| %>
+ <%= form_with url: patients_url, method: :get do |f| %>
   <div class="field has-addons">
     <div class="control">
       <%= f.text_field :patient_search, class: 'input', placeholder: 'Patient DNI' %>
