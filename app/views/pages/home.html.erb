@@ -1,6 +1,6 @@
-<div class="container is-fluid has-text-centered">
+<div class="container is-fluid has-text-centered mt-4">
   <div class="columns">
-    <div class="column is-one-quarter">
+    <div class="column is-one-quarter is-flex is-flex-direction-column is-justify-content-start mt-6">
       <div class="has-text-left">
         <p>Initialize new case</p>
         <div class="patient_form">
@@ -17,12 +17,12 @@
         </div>
       </div>
       <div class="has-text-left">
-        <p>Search case, cases or patient records</p>
+        <p>Search cases by protocol, DNI, Surname or pathologist</p>
         <%= form_with url: cases_url, method: :get do |form| %>
           <div class="field has-addons">
             <div class="control">
               <span class="select">
-                <%= form.select :scope, [['Protocol', 'protocol_number'],['DNI', 'dni'],['Surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
+                <%= form.select :scope, [['Protocol', 'protocol_number'],['DNI', 'dni'],['Surname', 'patient_last_name'], ['PATH','pathologist_last_name' ]] %>
               </span>
             </div>
             <div class="control">
