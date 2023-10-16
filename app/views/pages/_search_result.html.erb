@@ -4,6 +4,9 @@
       <tr>
         <th>Patient name</th>
         <th>Patient DNI</th>
+        <th>Total cases</th>
+        <th>Pending cases</th>
+        <th>Diagnosed cases</th>
       </tr>
     </thead>
     <tbody>
@@ -12,6 +15,9 @@
           <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id}, class: 'button is-text' %>
         </td>
         <td><%= @patient.dni %></td>
+        <td><%= @patient.cases.count %></td>
+        <td><%= @patient.cases.not_diagnosed.count %></td>
+        <td><%= @patient.cases.diagnosed.count %></td>
       </tr>
     </tbody>
   </table>
