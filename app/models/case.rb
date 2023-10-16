@@ -16,12 +16,17 @@ class Case < ApplicationRecord
   validates :organ, presence: true
   scope :ordered, -> { order(updated_at: :desc) }
   before_save :set_status
+  before_save do
+    self.organ = organ.downcase
+    self.physician = physician.downcase if physician?
+    self.speciality = speciality.downcase if speciality?
+  end
 
   def table_data
     [
       ['Protocol Number:', protocol_number.to_s, 'Pathologist:', pathologist.full_name.to_s],
-      ['Type of sample:', type_of_sample.to_s, 'Organ/Site:', organ.to_s],
-      ['Physician:', physician.to_s, 'Speciality:', speciality.to_s]
+      ['Type of sample:', type_of_sample.capitalize.to_s, 'Organ/Site:', organ.capitalize.to_s],
+      ['Physician:', physician.capitalize.to_s, 'Speciality:', speciality.capitalize.to_s]
     ]
   end
 

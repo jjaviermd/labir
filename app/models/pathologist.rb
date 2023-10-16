@@ -5,9 +5,13 @@ class Pathologist < ApplicationRecord
   has_many :cases
   validates :name, :last_name, presence: true
   has_one_attached :sign
+  before_save do
+    self.last_name = last_name.downcase
+    self.name = name.downcase
+  end
 
   def full_name
-    "#{last_name} #{name}"
+    "#{last_name} #{name}".titleize
   end
 
   def sign_report(document = pdf)
