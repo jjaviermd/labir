@@ -1,13 +1,13 @@
-<div class="container has-text-centered">
+<div class="container is-fluid has-text-centered">
   <div class="columns">
-    <div class="column is-one-third">
-      <div class="container has-text-centered">
+    <div class="column is-one-quarter">
+      <div class="has-text-left">
         <p>Initialize new case</p>
         <div class="patient_form">
           <%= form_with url: patients_url, method: :get do |f| %>
-            <div class="field has-addons has-addons-centered"">
+            <div class="field has-addons has-addons-left">
               <div class="control">
-                <%= f.text_field :patient_search, class: 'input', placeholder: 'Patient DNI' %>
+                <%= f.text_field :patient_search, class: 'input', placeholder: 'DNI' %>
               </div>
               <div class="control">
                 <%= f.submit 'New Case', class: 'button is-info' %>
@@ -16,17 +16,17 @@
           <% end %>
         </div>
       </div>
-      <div class="container has-text-centered">
+      <div class="has-text-left">
         <p>Search case, cases or patient records</p>
         <%= form_with url: cases_url, method: :get do |form| %>
           <div class="field has-addons">
             <div class="control">
               <span class="select">
-                <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
+                <%= form.select :scope, [['Protocol', 'protocol_number'],['DNI', 'dni'],['Surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
               </span>
             </div>
             <div class="control">
-              <%= form.text_field :query, class: 'input', placeholder: 'protocol number, DNI, last name' %>
+              <%= form.text_field :query, class: 'input' %>
             </div>
             <div class="control">
               <%= form.submit "Search", class: "button is-info" %>
