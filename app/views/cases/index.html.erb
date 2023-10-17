@@ -1,19 +1,20 @@
-<h1>Cases</h1>
-<%= form_with url: cases_url, method: :get do |form| %>
-  <div class="field has-addons">
-    <div class="control">
-      <span class="select">
-        <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
-      </span>
+<div>
+  <%= form_with url: cases_url, method: :get do |form| %>
+    <div class="field has-addons">
+      <div class="control">
+        <span class="select">
+          <%= form.select :scope, [['Protocol Number', 'protocol_number'],['DNI', 'dni'],['Patient surname', 'patient_last_name'], ['Pathologist','pathologist_last_name' ]] %>
+        </span>
+      </div>
+      <div class="control">
+        <%= form.text_field :query, class: 'input', placeholder: 'protocol number, DNI, last name' %>
+      </div>
+      <div class="control">
+        <%= form.submit "Search", class: "button is-info" %>
+      </div>
     </div>
-    <div class="control">
-      <%= form.text_field :query, class: 'input', placeholder: 'protocol number, DNI, last name' %>
-    </div>
-    <div class="control">
-      <%= form.submit "Search", class: "button is-info" %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 <br>
 <div>
   <%= render "cases_table", cases: @cases %>

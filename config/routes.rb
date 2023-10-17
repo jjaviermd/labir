@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get 'sign_inform', on: :member
   end
   resources :pathologists
+  get '/pathologists/:id/pending', to: 'pathologists#pending', as: 'pending'
+  get '/pathologists/:id/finished', to: 'pathologists#finished', as: 'finished'
   get '/home', to: 'pages#home'
   get '/about', to: 'pages#about'
   get '/settings', to: 'pages#settings'

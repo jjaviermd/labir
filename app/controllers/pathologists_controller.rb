@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PathologistsController < ApplicationController
-  before_action :set_pathologist, only: %i[edit update destroy]
+  before_action :set_pathologist, only: %i[edit update destroy pending finished]
   def index
     @pathologists = Pathologist.all
   end
@@ -39,6 +39,14 @@ class PathologistsController < ApplicationController
       flash.now[:danger] =
         "Something went wrong. #{@pathologist.full_name} profile could  not be updated"
     end
+  end
+
+  def pending
+    @pending_cases = @pathologist.cases.not_diagnosed
+  end
+
+  def finished
+    @finished_cases = @pathologist.cases.diagnosed
   end
 
   def destroy; end

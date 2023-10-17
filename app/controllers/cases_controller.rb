@@ -7,19 +7,19 @@ class CasesController < ApplicationController
   def index
     @cases = case params[:scope]
              when 'protocol_number'
-               Case.joins(:patient, :pathologist).includes(:patient, :pathologist)
+               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
                    .where('protocol_number LIKE ?', "%#{params[:query]}%")
              when 'dni'
-               Case.joins(:patient, :pathologist).includes(:patient, :pathologist)
+               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
                    .where('dni LIKE ?', "%#{params[:query]}%")
              when 'patient_last_name'
-               Case.joins(:patient, :pathologist).includes(:patient, :pathologist)
+               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
                    .where('f_last_name LIKE ?', "%#{params[:query]}%")
              when 'pathologist_last_name'
-               Case.joins(:patient, :pathologist).includes(:patient, :pathologist)
+               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
                    .where('last_name LIKE ?', "%#{params[:query]}%")
-             else
-               Case.includes(:patient, :pathologist).all
+               #  else
+               #    Case.ordered.includes(:patient, :pathologist).all
              end
   end
 
