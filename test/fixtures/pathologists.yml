@@ -3,11 +3,14 @@
 ariel:
   last_name: 'Pilipiuk'
   name: 'Ariel'
+  registry_number: '123456'
 
 candela:
   last_name: 'Paredes'
   name: 'Camdela'
+  registry_number: '456789'
 
 rafa:
   last_name: 'Penarrieta'
   name: 'Rafaela'
+  registry_number: '654321'
