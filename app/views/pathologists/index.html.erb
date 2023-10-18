@@ -13,7 +13,7 @@
       <td><%= pathologist.registry_number %></td>
       <td><%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist) %></td>
       <td><%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist) %></td>
-      <td><%= pathologist.cases.count %></td>
+      <td><%= pathologist.cases_count %></td>
     </tr>
   <% end %>
 </table>

@@ -4,7 +4,7 @@
 class Case < ApplicationRecord
   include Documentable
   belongs_to :patient
-  belongs_to :pathologist
+  belongs_to :pathologist, counter_cache: true
   enum status: { gross_examination: 1,
                  histotechnology: 2,
                  microscopic_examination: 3,

@@ -42,11 +42,11 @@ class PathologistsController < ApplicationController
   end
 
   def pending
-    @pending_cases = @pathologist.cases.not_diagnosed
+    @pending_cases = @pathologist.cases.includes(:patient).not_diagnosed
   end
 
   def finished
-    @finished_cases = @pathologist.cases.diagnosed
+    @finished_cases = @pathologist.cases.includes(:patient).diagnosed
   end
 
   def destroy; end
