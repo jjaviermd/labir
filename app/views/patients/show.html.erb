@@ -1,6 +1,8 @@
-<%= render 'patient', patient: @patient %>
-<br>
-<div>
-  <h2 class="subtitle">Patient cases</h2>
-  <%= render 'cases/cases_table', cases: @patient.cases %>
+<div class="container is-fluid mt-4">
+  <%= render 'patient', patient: @patient %>
+  <br>
+  <div>
+    <h2 class="subtitle">Patient cases</h2>
+    <%= render 'cases/cases_table', cases: @patient.cases %>
+  </div>
 </div>

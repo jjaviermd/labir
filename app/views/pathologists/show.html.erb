@@ -1,26 +1,28 @@
-<div>
-  <h2 class='subtitle'><%= "#{@pathologist.full_name}'s Profile" %> </h2>
-  <table class="table">
-    <tr>
-      <th>Surename</th>
-      <td><%= @pathologist.last_name.titleize %></td>
-      <th>Name</th>
-      <td><%= @pathologist.name.titleize %></td>
-      <th>Registry Number</th>
-      <td><%= @pathologist.registry_number %></td>
-    </tr>
-    <tr>
-      <th>Pending cases</th>
-      <td> <%= link_to @pending_cases.count, pending_path %></td>
-      <th>Diagnosed cases</th>
-      <td><%= link_to  @finished_cases.count, finished_path%></td>
-      <th>Total cases</th>
-      <td><%= @pathologist.cases.count %></td>
-    </tr>
-  </table>
-</div>
-<br>
-<div>
-  <h2 class="subtitle"> <%= "#{@pathologist.full_name}'s cases" %></h2>
-  <%= render 'pathologist_cases', cases: @pathologist.cases %>
+<div class="container is-fluid mt-4">
+  <div >
+    <h2 class='subtitle'><%= "#{@pathologist.full_name}'s Profile" %> </h2>
+    <table class="table">
+      <tr>
+        <th>Surename</th>
+        <td><%= @pathologist.last_name.titleize %></td>
+        <th>Name</th>
+        <td><%= @pathologist.name.titleize %></td>
+        <th>Registry Number</th>
+        <td><%= @pathologist.registry_number %></td>
+      </tr>
+      <tr>
+        <th>Pending cases</th>
+        <td> <%= link_to @pending_cases.count, pending_path %></td>
+        <th>Diagnosed cases</th>
+        <td><%= link_to  @finished_cases.count, finished_path%></td>
+        <th>Total cases</th>
+        <td><%= @pathologist.cases.count %></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div>
+    <h2 class="subtitle"> <%= "#{@pathologist.full_name}'s cases" %></h2>
+    <%= render 'pathologist_cases', cases: @pathologist.cases %>
+  </div>
 </div>

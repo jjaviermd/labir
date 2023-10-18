@@ -1,51 +1,53 @@
-<%= render 'patients/patient', patient:@case.patient %>
-<br>
-<div>
-  <h2 class = "subtitle">Case details</h2>
-  <section>
-    <table class= 'table'>
-      <tr>
-        <th>Pathologist</th>
-        <td><%= link_to @case.pathologist.full_name, pathologist_path(@case.pathologist) %></td>
-      </tr>
-      <tr>
-        <th>Protocol Number</th>
-        <td><%= @case.protocol_number %></td>
-        <th>Status</th>
-        <td><%= @case.status.capitalize %></td>
-      </tr>
-      <tr>
-        <th>Organ</th>
-        <td><%= @case.organ.capitalize %></td>
-        <th>Sample</th>
-        <td><%= @case.type_of_sample.capitalize %></td>
-      </tr>
-      <tr>
-        <th>Physician</th>
-        <td><%= @case.physician.capitalize %></td>
-        <th>Speciality</th>
-        <td><%= @case.speciality.capitalize %></td>
-      </tr>
-    </table>
-  </section>
-  <section>
-    <table class = 'table'>
-      <tr>
-        <th>Gross description</th>
-        <td><%= @case.macro_description %></td>
-        <th>Microscopic description</th>
-        <td><%= @case.micro_description %></td>
-      </tr>
-      <tr>
-        <th>Diagnosis</th>
-        <td><%= @case.diagnosis %></td>
-        <th>Notes</th>
-        <td><%= @case.notes %></td>
-      </tr>
-    </table>
-  </section>
-  <div class="field is-grouped">
-    <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
-    <%= link_to 'Finish and Sign', sign_inform_case_path(@case), class: 'control button is-info' %>
+<div class="container is-fluid mt-4">
+  <%= render 'patients/patient', patient:@case.patient %>
+  <br>
+  <div>
+    <h2 class = "subtitle">Case details</h2>
+    <section>
+      <table class= 'table'>
+        <tr>
+          <th>Pathologist</th>
+          <td><%= link_to @case.pathologist.full_name, pathologist_path(@case.pathologist) %></td>
+        </tr>
+        <tr>
+          <th>Protocol Number</th>
+          <td><%= @case.protocol_number %></td>
+          <th>Status</th>
+          <td><%= @case.status.capitalize %></td>
+        </tr>
+        <tr>
+          <th>Organ</th>
+          <td><%= @case.organ.capitalize %></td>
+          <th>Sample</th>
+          <td><%= @case.type_of_sample.capitalize %></td>
+        </tr>
+        <tr>
+          <th>Physician</th>
+          <td><%= @case.physician.capitalize %></td>
+          <th>Speciality</th>
+          <td><%= @case.speciality.capitalize %></td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <table class = 'table'>
+        <tr>
+          <th>Gross description</th>
+          <td><%= @case.macro_description %></td>
+          <th>Microscopic description</th>
+          <td><%= @case.micro_description %></td>
+        </tr>
+        <tr>
+          <th>Diagnosis</th>
+          <td><%= @case.diagnosis %></td>
+          <th>Notes</th>
+          <td><%= @case.notes %></td>
+        </tr>
+      </table>
+    </section>
+    <div class="field is-grouped">
+      <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
+      <%= link_to 'Finish and Sign', sign_inform_case_path(@case), class: 'control button is-info' %>
+    </div>
   </div>
 </div>

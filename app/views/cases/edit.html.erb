@@ -1,10 +1,14 @@
-<h1 class="title" >Update case</h1>
-<%= render 'patients/patient', patient: @patient %>
-<%= form_with model: @case do |c_f| %>
-  <%= render 'case_subform', c_f: c_f %>
-  <br>
-  <div class="field is-grouped">
-    <%= c_f.submit 'Acept and save', class: 'control button is-success' %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button' %>
+<div class="container is-fluid mt-4">
+  <h1 class="title" >Update case</h1>
+  <%= render 'patients/patient', patient: @patient %>
+  <div class="mt-4">
+    <%= form_with model: @case do |c_f| %>
+      <%= render 'case_subform', c_f: c_f %>
+      <br>
+      <div class="field is-grouped">
+        <%= c_f.submit 'Acept and save', class: 'control button is-success' %>
+        <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

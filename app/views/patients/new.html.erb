@@ -1,15 +1,17 @@
-<h1 class= "title">New patient and case</h1>
-<%= form_with model: @patient do |p_f| %>
-  <%= render 'layouts/form_messages', object: @patient %>
-  <h2 class ="subtitle">Patient info</h2>
-  <%= render 'patient_form', p_f: p_f %>
-  <br>
-  <h2 class ="subtitle">Case info</h2>
-  <%= p_f.fields_for :cases do |c_f| %>
-    <% render 'cases/case_subform', c_f: c_f %>
+<div class="container is-fluid mt-4">
+  <h1 class= "title">New patient and case</h1>
+  <%= form_with model: @patient do |p_f| %>
+    <%= render 'layouts/form_messages', object: @patient %>
+    <h2 class ="subtitle">Patient info</h2>
+    <%= render 'patient_form', p_f: p_f %>
+    <br>
+    <h2 class ="subtitle">Case info</h2>
+    <%= p_f.fields_for :cases do |c_f| %>
+      <% render 'cases/case_subform', c_f: c_f %>
+    <% end %>
+    <div class= 'field is-grouped'>
+      <%= p_f.submit 'Acept and save', class: 'control button is-success' %>
+      <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button' %>
+    </div>
   <% end %>
-  <div class= 'field is-grouped'>
-    <%= p_f.submit 'Acept and save', class: 'control button is-success' %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button' %>
-  </div>
-<% end %>
+</div>
