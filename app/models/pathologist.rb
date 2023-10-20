@@ -2,6 +2,8 @@
 
 # Class pathologist represent the medic professional in charge of biopsy.
 class Pathologist < ApplicationRecord
+  # Pathologist.find_each {|p| Pathologist.reset_counters(p.id, :cases)}
+
   has_many :cases
   validates :name, :last_name, presence: true
   has_one_attached :sign
