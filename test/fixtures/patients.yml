@@ -2,9 +2,9 @@
 
 carmen:
   dni: 94944555
-  f_last_name: Pererira
-  l_last_name: Zabaleta
-  name: Carmen
+  f_last_name: pereira
+  l_last_name: zabaleta
+  name: carmen
   gender: 1
   phone_number: 555-555-555
   email: mail@mail.com
@@ -13,9 +13,9 @@ carmen:
 
 paco:
   dni: 89896632
-  f_last_name: Lopez
-  l_last_name: Santos
-  name: Paco
+  f_last_name: lopez
+  l_last_name: santos
+  name: paco
   gender: 1,
   phone_number: 555666444
   email: paco@mail.com
@@ -25,9 +25,9 @@ paco:
 
 natasha:
   dni: 45852654
-  f_last_name: Klauss
-  l_last_name: Borja
-  name: Natasha
+  f_last_name: klauss
+  l_last_name: borja
+  name: natasha
   gender: 2
   phone_number: 555222777
   email: nata_sha@mail.com

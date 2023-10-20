@@ -13,7 +13,7 @@
     <tbody>
       <tr>
         <td>
-          <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id}, class: 'button is-text' %>
+          <%= button_to @patient.full_name, new_case_path, method: :get, params: {patient_id: @patient.id}, class: 'button is-text', data:{turbo_frame: '_top'} %>
         </td>
         <td><%= @patient.dni %></td>
         <td><%= @patient.cases.count %></td>
@@ -25,6 +25,6 @@
 <% else %>
   <div class="notification has-text-centered">
     <p class ="title is-size-4" >Patient not found!</p>
-    <%= link_to 'Create new patient and case', new_patient_path %>
+    <%= link_to 'Create new patient and case', new_patient_path, data:{turbo_frame: '_top'} %>
   </div>
 <% end %>
