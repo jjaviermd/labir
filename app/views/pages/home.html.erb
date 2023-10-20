@@ -10,7 +10,7 @@
                 <%= f.text_field :patient_search, class: 'input', placeholder: 'DNI' %>
               </div>
               <div class="control">
-                <%= f.submit 'New Case', class: 'button is-info' %>
+                <%= f.submit 'New Case', class: 'button is-info', data:{turbo_frame: 'cases'} %>
               </div>
             </div>
           <% end %>

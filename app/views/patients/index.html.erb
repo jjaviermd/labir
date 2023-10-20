@@ -10,6 +10,8 @@
     </div>
   <% end %>
   <% if params[:patient_search] %>
-    <%= render 'pages/search_result' %>
+    <%= turbo_frame_tag "cases" do %>
+      <%= render 'pages/search_result' %>
+    <% end %>
   <% end %>
 </div>

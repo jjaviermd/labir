@@ -1,5 +1,6 @@
+<h1 class="title has-text-centered">Search Results</h1>
 <% if @patient %>
-  <table class = "table">
+  <table class = "table mx-auto">
     <thead>
       <tr>
         <th>Patient name</th>
@@ -22,8 +23,8 @@
     </tbody>
   </table>
 <% else %>
-  <div class="notification">
-    <p class ="title" >Patient not found!</p>
+  <div class="notification has-text-centered">
+    <p class ="title is-size-4" >Patient not found!</p>
     <%= link_to 'Create new patient and case', new_patient_path %>
   </div>
 <% end %>
