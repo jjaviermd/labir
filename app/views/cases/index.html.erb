@@ -17,5 +17,8 @@
 </div>
 <br>
 <div>
-  <%= render "cases_table", cases: @cases %>
+  <%= turbo_frame_tag "cases" do %>
+    <h1 class="title has-text-centered">Search Results</h1>
+    <%= render "cases_table", cases: @cases %>
+  <% end %>
 </div>

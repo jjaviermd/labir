@@ -29,15 +29,17 @@
               <%= form.text_field :query, class: 'input' %>
             </div>
             <div class="control">
-              <%= form.submit "Search", class: "button is-info" %>
+              <%= form.submit "Search", class: "button is-info", data:{turbo_frame: 'cases'} %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
     <div class="column">
-      <h1 class= "title has-text-centered" >Recent cases</h2>
-      <%= render 'cases/cases_table', cases: @cases %>
+      <%= turbo_frame_tag 'cases' do %>
+        <h1 class= "title has-text-centered" >Recent cases</h2>
+        <%= render 'cases/cases_table', cases: @cases %>
+      <% end %>
     </div>
   </div>
 </div>
