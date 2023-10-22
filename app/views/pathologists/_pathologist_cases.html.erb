@@ -20,8 +20,8 @@
         <td><%= c.status.split('_').join(' ').capitalize %></td>
         <td><%= c.notes %></td>
         <td class ="field is-grouped">
-          <%= link_to "Show", case_path(c), class: 'control button is-success' %>
-          <%= link_to "Edit", edit_case_path(c), class: 'control button is-info' %>
+          <%= link_to "Show", case_path(c), class: 'control button is-success', data:{turbo_frame: '_top'} %>
+          <%= link_to "Edit", edit_case_path(c), class: 'control button is-info', data:{turbo_frame: '_top'} %>
         </td>
       </tr>
     <% end %>

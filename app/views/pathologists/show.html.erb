@@ -12,9 +12,9 @@
       </tr>
       <tr>
         <th>Pending cases</th>
-        <td> <%= link_to @pending_cases.count, pending_path %></td>
+        <td> <%= link_to @pending_cases.count, pending_path, data:{turbo_frame: 'cases'} %></td>
         <th>Diagnosed cases</th>
-        <td><%= link_to  @finished_cases.count, finished_path%></td>
+        <td><%= link_to  @finished_cases.count, finished_path, data:{turbo_frame: 'cases'}%></td>
         <th>Total cases</th>
         <td><%= @pathologist.cases.count %></td>
       </tr>
@@ -23,6 +23,8 @@
   <br>
   <div>
     <h2 class="subtitle"> <%= "#{@pathologist.full_name}'s cases" %></h2>
-    <%= render 'pathologist_cases', cases: @pathologist.cases %>
+    <%= turbo_frame_tag 'cases' do %>
+      <%= render 'pathologist_cases', cases: @pathologist.cases %>
+    <% end %>
   </div>
 </div>

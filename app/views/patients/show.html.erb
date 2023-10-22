@@ -1,5 +1,7 @@
 <div class="container is-fluid mt-4">
-  <%= render 'patient', patient: @patient %>
+  <%= turbo_frame_tag @patient do %>
+    <%= render 'patient', patient: @patient %>
+  <% end %>
   <br>
   <div>
     <h2 class="subtitle">Patient cases</h2>
