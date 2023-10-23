@@ -15,7 +15,7 @@
       <tr>
         <th><%= c.protocol_number %></th>
         <td><%= c.patient.dni %></td>
-        <td><%= link_to c.patient.full_name, patient_path(c.patient) %></td>
+        <td><%= link_to c.patient.full_name, patient_path(c.patient), data:{turbo_frame: '_top'} %></td>
         <td><%= c.type_of_sample.capitalize %></td>
         <td><%= c.status.split('_').join(' ').capitalize %></td>
         <td><%= c.notes %></td>

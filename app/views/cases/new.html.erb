@@ -9,7 +9,7 @@
         <%= render 'case_subform', c_f: c_f %>
         <div class="field is-grouped">
           <%= c_f.submit 'Acept and save', class: 'control button is-success' %>
-          <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button is-warning' %>
+          <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button is-warning', data:{turbo_frame: '_top'} %>
         </div>
       </fieldset>
     <% end %>
