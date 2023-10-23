@@ -36,9 +36,15 @@
       </div>
     </div>
     <div class="column">
-      <%= turbo_frame_tag 'cases' do %>
-        <h1 class= "title has-text-centered" >Recent cases</h2>
-        <%= render 'cases/cases_table', cases: @cases %>
+      <% if @cases.any? %>
+        <%= turbo_frame_tag 'cases' do %>
+          <h1 class= "title has-text-centered" >Recent cases</h2>
+          <%= render 'cases/cases_table', cases: @cases %>
+        <% end %>
+      <% else %>
+        <%= turbo_frame_tag Case.new do %>
+          <%= render "pages/empty_state" %>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "new_patient" do %>
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <p class="title">
+        There are no cases saved.
+      </p>
+      <p class="subtitle">
+        Initialize a new patient and case
+      </p>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          <%= link_to "New case", new_patient_path %>
+        </span>
+      </p>
+    </footer>
+  </div>
+<% end %>
