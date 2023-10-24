@@ -54,7 +54,7 @@ class PathologistsController < ApplicationController
   private
 
   def pathologist_params
-    params.require(:pathologist).permit(:last_name, :name, :sign)
+    params.require(:pathologist).permit(:last_name, :name, :registry_number, :sign)
   end
 
   def set_pathologist
