@@ -1,2 +1,3 @@
 <%# turbo_stream.replace "test", partial:"pathologists/test" %>
 <%= turbo_stream.update Pathologist.new, "" %>
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>

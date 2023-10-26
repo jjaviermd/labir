@@ -21,7 +21,7 @@ class PathologistsController < ApplicationController
     if @pathologist.save
       respond_to do |format|
         format.html { redirect_to pathologist_path(@pathologist), success: "#{@pathologist.full_name} profile created" }
-        format.turbo_stream
+        format.turbo_stream { flash.now[:success] = "#{@pathologist.full_name} profile created" }
       end
     else
       render :new, status: :unprocessable_entity
