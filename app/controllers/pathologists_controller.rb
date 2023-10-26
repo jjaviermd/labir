@@ -19,12 +19,13 @@ class PathologistsController < ApplicationController
   def create
     @pathologist = Pathologist.new(pathologist_params)
     if @pathologist.save
-      redirect_to pathologist_path(@pathologist)
-      flash[:success] =
-        "#{@pathologist.full_name} profile have bee created"
+      respond_to do |format|
+        format.html { redirect_to pathologist_path(@pathologist), success: "#{@pathologist.full_name} profile created" }
+        format.turbo_stream
+      end
     else
-      flash.now[:danger] =
-        "Something went wrong. #{@pathologist.full_name} profile could not be updated"
+      render :new, status: :unprocessable_entity
+      flash.now[:danger] = "Something went wrong. #{@pathologist.full_name} profile could not created"
     end
   end
 
@@ -37,7 +38,7 @@ class PathologistsController < ApplicationController
         "#{@pathologist.full_name} profile haave been updated"
     else
       flash.now[:danger] =
-        "Something went wrong. #{@pathologist.full_name} profile could  not be updated"
+        "Something went wrong. #{@pathologist.full_name} profile  notupdated"
     end
   end
 

@@ -25,7 +25,7 @@
     </label>
   </div>
   <div class='field is-grouped' >
-    <%= pa_f.submit 'Acept and save', class: 'control button is-success' %>
+    <%= pa_f.submit 'Acept and save', class: 'control button is-success', data:{turbo_frame: "_top"} %>
     <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
   </div>
 <% end %>

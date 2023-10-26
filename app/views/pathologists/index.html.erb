@@ -10,16 +10,17 @@
     </tr>
     <% @pathologists.each do |pathologist| %>
       <tr>
-        <td><%= link_to pathologist.full_name, pathologist_path(pathologist) %> </td>
+        <td><%= link_to pathologist.full_name, pathologist_path(pathologist), data: {turbo_frame: "_top"} %> </td>
         <td><%= pathologist.registry_number %></td>
-        <td><%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist) %></td>
-        <td><%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist) %></td>
+        <td><%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist), data: {turbo_frame: "_top"} %></td>
+        <td><%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist), data: {turbo_frame: "_top"} %></td>
         <td><%= pathologist.cases_count %></td>
       </tr>
     <% end %>
   </table>
   <div class='is-grouped'>
-    <%= link_to "New Pathologist", new_pathologist_path, class: 'button is-success'  %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
+    <%= link_to "New Pathologist", new_pathologist_path, class: 'button is-success', data:{turbo_frame: dom_id(Pathologist.new)}  %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button', data: {turbo_frame: "_top"} %>
   </div>
+  <%= turbo_frame_tag dom_id(Pathologist.new) %>
 </div>

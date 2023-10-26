@@ -3,7 +3,7 @@
   "name": "Attach with rdbg",
   "request": "attach",
   "rdbgPath": "/home/jjavier/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/debug-1.8.0/exe/rdbg",
-  "debugPort": "/run/user/1000/ruby-debug-jjavier-23904",
+  "debugPort": "/run/user/1000/ruby-debug-jjavier-24994",
   "localfs": true,
-  "autoAttach": "0.07107018264940623"
+  "autoAttach": "0.0015672712841043879"
 }
