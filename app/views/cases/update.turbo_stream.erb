@@ -1,0 +1,2 @@
+<%= turbo_stream.replace @case, partial: 'cases/case_details', locals:{my_case: @case} %>
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>

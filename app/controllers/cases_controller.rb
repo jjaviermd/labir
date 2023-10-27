@@ -49,8 +49,12 @@ class CasesController < ApplicationController
 
   def update
     if @case.update(case_params)
-      redirect_to case_path(@case)
-      flash[:success] = "Case number: #{@case.protocol_number} have been updated."
+      respond_to do |format|
+        format.html do
+          redirect_to case_path(@case), success: "Case number #{@case.protocol_number} updated."
+        end
+        format.turbo_stream { flash.now[:success] = "Case number #{@case.protocol_number} updated." }
+      end
     else
       flash.now[:danger] = 'Something went wrong!, case was not updated.'
       render :edit, status: :unprocessable_entity
