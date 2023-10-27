@@ -38,7 +38,7 @@ class PatientsController < ApplicationController
         format.turbo_stream { flash.now[:success] = "#{@patient.full_name}`s info updated." }
       end
     else
-      flash.now[:danger] = 'Something went wrong!, patient`s info was not updated.'
+      flash.now[:danger] = 'Something went wrong! patient`s info was not updated.'
     end
   end
 

@@ -1,5 +1,5 @@
 <% flash.each do |name, message| %>
-  <article class=<%= "message is-#{name}" %> >
+  <%= tag.article class:("message is-#{name}") do %>
     <div class="message-header">
       <p><%= name.capitalize %></p>
       <%# <button class="delete" aria-label="delete"></button> %>
@@ -7,5 +7,5 @@
     <div class="message-body">
       <%= message %>
     </div>
-  </article>
+  <% end %>
 <% end %>
