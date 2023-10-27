@@ -5,10 +5,6 @@
     <h2 class = "subtitle">Case details</h2>
     <%= turbo_frame_tag @case do %>
       <%= render 'case_details', my_case: @case %>
-      <div class="field is-grouped">
-        <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
-        <%= link_to 'Finish and Sign', sign_inform_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top'} %>
-      </div>
     <% end %>
   </div>
 </div>
