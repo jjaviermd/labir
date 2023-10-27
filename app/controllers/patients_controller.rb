@@ -33,8 +33,10 @@ class PatientsController < ApplicationController
 
   def update
     if @patient.update(patient_params)
-      redirect_to patient_path(@patient)
-      flash[:success] = "#{@patient.full_name}`s information have been updated."
+      respond_to do |format|
+        format.html { redirect_to patient_patth(@patient), success: "#{@patient.full_name}`s info updated." }
+        format.turbo_stream { flash.now[:success] = "#{@patient.full_name}`s info updated." }
+      end
     else
       flash.now[:danger] = 'Something went wrong!, patient`s info was not updated.'
     end

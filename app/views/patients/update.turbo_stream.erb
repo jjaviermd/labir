@@ -1,0 +1,2 @@
+<%= turbo_stream.replace @patient, partial: 'patient', locals:{ patient: @patient} %>
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>
