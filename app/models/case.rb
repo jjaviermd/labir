@@ -41,6 +41,10 @@ class Case < ApplicationRecord
     document.text diagnosis
   end
 
+  def status_sjc
+    status.split('_').join(' ').capitalize
+  end
+
   def set_status
     self.status = 'histotechnology' if macro_description? && !micro_description? && !diagnosis?
     self.status = 'diagnosed' if macro_description? && micro_description? && diagnosis?
