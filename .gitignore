@@ -34,3 +34,7 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Ignore db schema and migration directory
+# /db/migrate/*
+# /db/schema.rb

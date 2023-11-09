@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :laboratories, controllers: {
+    sessions: 'laboratories/sessions',
+    registrations: 'laboratories/registrations'
+  }
   resources :patients, except: :destroy
   resources :cases, except: :destroy do
     get 'sign_inform', on: :member
