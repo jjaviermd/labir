@@ -1,0 +1,5 @@
+class AddLaboratoryRefToPathologists < ActiveRecord::Migration[7.0]
+  def change
+    add_reference :pathologists, :laboratory, null: false, foreign_key: true
+  end
+end

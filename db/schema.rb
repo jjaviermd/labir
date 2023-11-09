@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_02_173852) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_09_182240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,6 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_02_173852) do
     t.datetime "updated_at", null: false
     t.string "registry_number", null: false
     t.integer "cases_count", default: 0, null: false
+    t.bigint "laboratory_id", null: false
+    t.index ["laboratory_id"], name: "index_pathologists_on_laboratory_id"
     t.index ["last_name"], name: "index_pathologists_on_last_name"
     t.index ["registry_number"], name: "index_pathologists_on_registry_number"
   end
@@ -114,4 +116,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_02_173852) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cases", "pathologists"
   add_foreign_key "cases", "patients"
+  add_foreign_key "pathologists", "laboratories"
 end

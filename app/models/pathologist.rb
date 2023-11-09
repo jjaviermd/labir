@@ -5,6 +5,7 @@ class Pathologist < ApplicationRecord
   # Pathologist.find_each {|p| Pathologist.reset_counters(p.id, :cases)}
 
   has_many :cases
+  belongs_to :laboratory
   validates :name, :last_name, presence: true
   has_one_attached :sign
   before_save do

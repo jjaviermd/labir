@@ -3,4 +3,7 @@ class Laboratory < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :pathologists
+  validates :name, :address, :phone_number, :account, presence: true
+  validates :name, :account, uniqueness: true
 end

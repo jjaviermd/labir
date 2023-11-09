@@ -4,8 +4,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+arpe:
+  email: "arpe@mail.com"
+  encrypted_password: "password"
+  name: "arpe pathology laborartoy"
+  address: "rio de janeiro 123"
+  phone_number: "555666777"
+  account: "arpelab"
 two: {}
 # column: value
