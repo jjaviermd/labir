@@ -6,7 +6,7 @@
 #
 arpe:
   email: "arpe@mail.com"
-  encrypted_password: "password"
+  encrypted_password: <%= Devise::Encryptor.digest(Laboratory, 'password') %>
   name: "arpe pathology laborartoy"
   address: "rio de janeiro 123"
   phone_number: "555666777"
