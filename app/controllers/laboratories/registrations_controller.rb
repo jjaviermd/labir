@@ -42,12 +42,12 @@ class Laboratories::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address phone_number account])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email name address phone_number account])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name address phone_number account])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[email name address phone_number account])
   end
 
   # The path used after sign up.
