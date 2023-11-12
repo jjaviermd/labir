@@ -4,6 +4,7 @@ class Laboratory < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :pathologists
+  has_many :cases, through: :pathologists
   validates :name, :address, :phone_number, :account, presence: true
   validates :name, :account, uniqueness: true
 end
