@@ -3,11 +3,11 @@
 class PathologistsController < ApplicationController
   before_action :set_pathologist, only: %i[edit update destroy pending finished]
   def index
-    @pathologists = Pathologist.all
+    @pathologists = current_laboratory.pathologists.all
   end
 
   def show
-    @pathologist = Pathologist.includes(cases: :patient).find(params[:id])
+    @pathologist = current_laboratory.pathologists.includes(cases: :patient).find(params[:id])
     @pending_cases = @pathologist.cases.not_diagnosed
     @finished_cases = @pathologist.cases.diagnosed
   end
@@ -17,7 +17,7 @@ class PathologistsController < ApplicationController
   end
 
   def create
-    @pathologist = Pathologist.new(pathologist_params)
+    @pathologist = current_laboratory.pathologists.build(pathologist_params)
     if @pathologist.save
       respond_to do |format|
         format.html { redirect_to pathologist_path(@pathologist), success: "#{@pathologist.full_name} profile created" }
@@ -59,6 +59,6 @@ class PathologistsController < ApplicationController
   end
 
   def set_pathologist
-    @pathologist = Pathologist.find params[:id]
+    @pathologist = current_laboratory.pathologists.find params[:id]
   end
 end

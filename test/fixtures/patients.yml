@@ -10,6 +10,7 @@ carmen:
   email: mail@mail.com
   insurance: colmedica
   birth_day:  <%= Date.new(1984, 5, 16) %>
+  laboratory: arpe
 
 paco:
   dni: 89896632
@@ -22,6 +23,7 @@ paco:
   insurance: acopo
   birth_day:  <%= Date.new(1990, 7, 21) %>
   age: 50
+  laboratory: arpe
 
 natasha:
   dni: 45852654
@@ -33,3 +35,4 @@ natasha:
   email: nata_sha@mail.com
   insurance: rails
   birth_day:  <%= Date.new(1992, 8, 2) %>
+  laboratory: arpe

@@ -4,6 +4,7 @@
 class Patient < ApplicationRecord
   include Documentable
   has_many :cases
+  belongs_to :laboratory
   accepts_nested_attributes_for :cases
   enum :gender, male: 1, female: 2
   validates :dni, presence: true, uniqueness: true

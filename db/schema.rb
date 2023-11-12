@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_09_182240) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_12_160530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,8 +107,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_182240) do
     t.integer "age"
     t.date "birth_day"
     t.integer "gender"
+    t.bigint "laboratory_id", null: false
     t.index ["dni"], name: "index_patients_on_dni"
     t.index ["f_last_name"], name: "index_patients_on_f_last_name"
+    t.index ["laboratory_id"], name: "index_patients_on_laboratory_id"
     t.index ["name"], name: "index_patients_on_name"
   end
 
@@ -117,4 +119,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_182240) do
   add_foreign_key "cases", "pathologists"
   add_foreign_key "cases", "patients"
   add_foreign_key "pathologists", "laboratories"
+  add_foreign_key "patients", "laboratories"
 end
