@@ -1,3 +1,3 @@
-<%= turbo_stream.update "patho", partial:"pathologists/patho_table", locals:{pathologists: Pathologist.all} %>
+<%= turbo_stream.update "patho", partial:"pathologists/patho_table", locals:{pathologists: current_laboratory.pathologists.all} %>
 <%= turbo_stream.update Pathologist.new, "" %>
 <%= turbo_stream.prepend "flash", partial: "layouts/flash" %>
