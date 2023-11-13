@@ -7,31 +7,31 @@ class CasesController < ApplicationController
   def index
     @cases = case params[:scope]
              when 'protocol_number'
-               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                   .where('protocol_number LIKE ?', "%#{params[:query]}%")
+               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+                                 .where('protocol_number LIKE ?', "%#{params[:query]}%")
              when 'dni'
-               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                   .where('dni LIKE ?', "%#{params[:query]}%")
+               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+                                 .where('patients.dni LIKE ?', "%#{params[:query]}%")
              when 'patient_last_name'
-               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                   .where('f_last_name LIKE ?', "%#{params[:query]}%")
+               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+                                 .where('patients.f_last_name LIKE ?', "%#{params[:query]}%")
              when 'pathologist_last_name'
-               Case.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                   .where('last_name LIKE ?', "%#{params[:query]}%")
-               #  else
-               #    Case.ordered.includes(:patient, :pathologist).all
+               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+                                 .where('last_name LIKE ?', "%#{params[:query]}%")
+             else
+               current_laboratory.cases.ordered.includes(:patient, :pathologist).all
              end
   end
 
   def show; end
 
   def new
-    @patient = Patient.find params[:patient_id]
+    @patient = current_laboratory.patients.find params[:patient_id]
     @case = @patient.cases.build
   end
 
   def create
-    @patient = Patient.find case_params[:patient_id]
+    @patient = current_laboratory.patients.find case_params[:patient_id]
     @case = @patient.cases.build case_params
     if @case.save
       redirect_to case_path(@case)
@@ -76,11 +76,11 @@ class CasesController < ApplicationController
   private
 
   def set_case
-    @case = Case.find params[:id]
+    @case = current_laboratory.cases.find params[:id]
   end
 
   def set_case_patient_pathologist
-    @case = Case.includes(:patient, :pathologist).find params[:id]
+    @case = current_laboratory.cases.includes(:patient, :pathologist).find params[:id]
     @patient = @case.patient
     @pathologist = @case.pathologist
   end
