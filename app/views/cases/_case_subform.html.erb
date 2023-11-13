@@ -4,21 +4,13 @@
     <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
     <div class="control">
       <div class="select">
-        <%= c_f.collection_select :pathologist_id, Pathologist.order(:last_name), :id, :full_name %>
+        <%= c_f.collection_select :pathologist_id, current_laboratory.pathologists.order(:last_name), :id, :full_name %>
       </div>
     </div>
   </div>
   <div class = "field">
     <%= c_f.label :protocol_number, 'Protocol Number' %>
     <%= c_f.text_field :protocol_number, class:"input" %>
-  </div>
-  <div class = "field">
-    <%= c_f.label :status, 'Status' %>
-    <div class="control">
-      <div class="select">
-        <%= c_f.select :status, [['Gross sectioning', 'gross_examination'], ['Histotecnology', 'histotechnology'], ['Microscopic examination', 'microscopic_examination'], ['Diagnosed', 'diagnosed']] %>
-      </div>
-    </div>
   </div>
   <div class = "field">
     <%= c_f.label :organ, 'Organ' %>
@@ -42,6 +34,14 @@
   <div class = "field">
     <%= c_f.label :speciality, 'Speciality' %>
     <%= c_f.text_field :speciality, class:"input" %>
+  </div>
+  <div class = "field">
+    <%= c_f.label :status, 'Status' %>
+    <div class="control">
+      <div class="select">
+        <%= c_f.select :status, [['Gross sectioning', 'gross_examination'], ['Histotecnology', 'histotechnology'], ['Microscopic examination', 'microscopic_examination'], ['Diagnosed', 'diagnosed']] %>
+      </div>
+    </div>
   </div>
 </fieldset>
 <fieldset>
