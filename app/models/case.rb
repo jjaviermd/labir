@@ -12,7 +12,7 @@ class Case < ApplicationRecord
   enum type_of_sample: { biopsy: 1, citology: 2, autopsy: 3 }
   validates :status, inclusion: { in: %w[gross_examination histotechnology microscopic_examination diagnosed] }
   validates :type_of_sample, inclusion: { in: %w[biopsy citology autopsy] }
-  validates :protocol_number, uniqueness: true
+  validates :protocol_number, uniqueness: { scope: :laboratory, message: 'once per laboratory' }
   validates :organ, presence: true
   scope :ordered, -> { order(updated_at: :desc) }
   before_save :set_status
