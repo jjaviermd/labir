@@ -2,18 +2,12 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate_laboratory!, unless: :devise_controller?
-  # protect_from_forgery with: :exception
 
-  # before_action :update_allowed_parameters, if: :devise_controller?
+  before_action :set_current_laboratory
 
-  # protected
+  private
 
-  # def update_allowed_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up) do |u|
-  #     u.permit(:email, :name, :address, :phone_number, :account, :password)
-  #   end
-  #   devise_parameter_sanitizer.permit(:account_update) do |u|
-  #     u.permit(:email, :name, :address, :phone_number, :account, :password, :current_password)
-  #   end
-  # end
+  def set_current_laboratory
+    Current.laboratory = current_laboratory
+  end
 end
