@@ -1,19 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 ariel:
-  last_name: 'Pilipiuk'
-  name: 'Ariel'
+  last_name: 'pilipiuk'
+  name: 'ariel'
   registry_number: '123456'
   laboratory: arpe
 
 candela:
-  last_name: 'Paredes'
-  name: 'Camdela'
+  last_name: 'paredes'
+  name: 'camdela'
   registry_number: '456789'
   laboratory: arpe
 
 rafa:
   last_name: 'Penarrieta'
-  name: 'Rafaela'
+  name: 'rafaela'
   registry_number: '654321'
   laboratory: arpe
+
+falcon:
+  last_name: 'falcon'
+  name: 'marcelo'
+  registry_number: '789123'
+  laboratory: arylab

@@ -36,3 +36,15 @@ natasha:
   insurance: rails
   birth_day:  <%= Date.new(1992, 8, 2) %>
   laboratory: arpe
+
+robin:
+  dni: 94944181
+  f_last_name: hood
+  l_last_name:
+  name: robin
+  gender: 1
+  phone_number: 555222666
+  email: hoodr@mail.com
+  insurance: camelot
+  birth_day:  <%= Date.new(1991, 7, 15) %>
+  laboratory: arylab

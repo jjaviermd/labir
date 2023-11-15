@@ -5,10 +5,10 @@ case_1:
   pathologist: ariel
   status: 2
   type_of_sample: 1
-  organ: piel
+  organ: skin
   physician: Palutis
   speciality: Dermatology
-  protocol_number: 182456
+  protocol_number: 182500
 
 case_2:
   patient: paco
@@ -18,7 +18,7 @@ case_2:
   organ: kidney
   physician: Obregon
   speciality: Nefrology
-  protocol_number: 182457
+  protocol_number: 182600
 
 case_3:
   patient: carmen
@@ -28,5 +28,14 @@ case_3:
   organ: tyroid
   physician: Tomazo
   speciality: Surgery
-  protocol_number: 182458
+  protocol_number: 182700
 
+case_4:
+  patient: robin
+  pathologist: falcon
+  status: 2
+  type_of_sample: 1
+  organ: right eye
+  physician: harris
+  speciality: oftalmology
+  protocol_number: 182400

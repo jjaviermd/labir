@@ -8,3 +8,10 @@ arpe:
   phone_number: "555666777"
   account: "arpelab"
 
+arylab:
+  email: "arylbe@mail.com"
+  encrypted_password: <%= Devise::Encryptor.digest(Laboratory, 'password') %>
+  name: "ary laborartoy"
+  address: "huidobro 3500"
+  phone_number: "666777555"
+  account: "arylab"

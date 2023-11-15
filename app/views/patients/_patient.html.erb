@@ -6,7 +6,7 @@
         <th>First surename</th>
         <td><%= patient.f_last_name.capitalize %></td>
         <th>Second surename</th>
-        <td><%= patient.l_last_name.capitalize %></td>
+        <td><%= patient.l_last_name.capitalize if patient.l_last_name?%></td>
       </tr>
       <tr>
         <th> First name</th>
