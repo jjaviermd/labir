@@ -7,7 +7,7 @@ class Patient < ApplicationRecord
   belongs_to :laboratory
   accepts_nested_attributes_for :cases
   enum :gender, male: 1, female: 2
-  validates :dni, presence: true, uniqueness: { scope: :laboratory, message: 'once per laboratory' }
+  validates :dni, presence: true, uniqueness: { scope: :laboratory, message: 'Protocol number already in use' }
   validates :f_last_name, :name, presence: true
   validates :gender, inclusion: { in: %w[male female] }
   validates :birth_day, comparison: { less_than_or_equal_to: Date.today }
