@@ -45,22 +45,11 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:dni, :f_last_name, :l_last_name, :name,
-                                    :phone_number, :email, :insurance, :age,
-                                    :birth_day, :gender,
-                                    cases_attributes: %i[
-                                      pathologist_id
-                                      status
-                                      macro_description
-                                      micro_description
-                                      diagnosis
-                                      organ
-                                      physician
-                                      speciality
-                                      protocol_number
-                                      notes
-                                      type_of_sample
-                                    ])
+    params.require(:patient).permit(:dni, :f_last_name, :l_last_name, :name, :phone_number, :email, :insurance, :age,
+                                    :birth_day, :gender, cases_attributes: %i[pathologist_id status macro_description
+                                                                              micro_description diagnosis organ physician
+                                                                              speciality protocol_number notes
+                                                                              type_of_sample])
   end
 
   def set_patient
