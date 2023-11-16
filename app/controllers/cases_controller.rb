@@ -63,6 +63,12 @@ class CasesController < ApplicationController
 
   def sign_inform
     pdf = Prawn::Document.new
+    # pass these line to standalone method
+    # pdf.text(current_laboratory.name.to_s, align: :center, size: 16)
+    # pdf.text("#{current_laboratory.address} #{current_laboratory.email}", align: :center, size: 12)
+    # pdf.move_down 10
+    # =======
+    @laboratory.lab_header(pdf)
     @patient.pdf_table(pdf)
     @case.pdf_table(pdf)
     @case.description_text(pdf)
@@ -83,6 +89,7 @@ class CasesController < ApplicationController
     @case = current_laboratory.cases.includes(:patient, :pathologist).find params[:id]
     @patient = @case.patient
     @pathologist = @case.pathologist
+    @laboratory = @case.laboratory
   end
 
   def case_params

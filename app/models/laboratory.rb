@@ -9,4 +9,10 @@ class Laboratory < ApplicationRecord
   has_many :cases, through: :patients
   validates :name, :address, :phone_number, :account, presence: true
   validates :name, :account, uniqueness: true
+
+  def lab_header(document = pdf)
+    document.text(name.to_s, align: :center, size: 16)
+    document.text("#{address} #{email}", align: :center, size: 12)
+    document.move_down 10
+  end
 end

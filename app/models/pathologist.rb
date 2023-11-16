@@ -22,7 +22,7 @@ class Pathologist < ApplicationRecord
       sign_image = StringIO.open(sign.download)
       document.image(sign_image, fit: [100, 100], position: :center)
       document.text full_name.to_s, align: :center
-      document.text 'MP: 123456', align: :center
+      document.text "MP: #{registry_number}", align: :center
     end
   end
 end

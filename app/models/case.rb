@@ -23,6 +23,8 @@ class Case < ApplicationRecord
     self.physician = physician.downcase if physician?
     self.speciality = speciality.downcase if speciality?
   end
+  # delegate laboratory method
+  delegate :laboratory, to: :patient
 
   def table_data
     [

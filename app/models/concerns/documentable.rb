@@ -6,7 +6,7 @@ module Documentable
 
   included do
     def pdf_table(document = pdf)
-      document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[] }) do
+      document.table(table_data, position: :center, width: 550, cell_style: { borders: %i[], size: 10, height: 20 }) do
         row(0).borders = [:top]
         row(-1).borders = [:bottom]
         column(0).font_style = :bold
