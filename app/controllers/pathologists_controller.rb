@@ -29,7 +29,8 @@ class PathologistsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @pathologist.update(pathologist_params)
@@ -50,7 +51,8 @@ class PathologistsController < ApplicationController
     @finished_cases = @pathologist.cases.includes(:patient).diagnosed
   end
 
-  def destroy; end
+  def destroy
+  end
 
   private
 

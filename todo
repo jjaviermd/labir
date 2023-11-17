@@ -1,3 +1,3 @@
-lowercase all patients case and lab att before save
-add constrain to pathologists - sign presence true
+[x] lowercase all patients case and lab att before save
+[x] constrain pathologist sign presence or show if attached
 

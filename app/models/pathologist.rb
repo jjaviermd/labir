@@ -19,8 +19,10 @@ class Pathologist < ApplicationRecord
 
   def sign_report(document = pdf)
     document.bounding_box([300, document.cursor - 50], width: 150, height: 150) do
-      sign_image = StringIO.open(sign.download)
-      document.image(sign_image, fit: [100, 100], position: :center)
+      if sign.attached?
+        sign_image = StringIO.open(sign.download)
+        document.image(sign_image, fit: [100, 100], position: :center)
+      end
       document.text full_name.to_s, align: :center
       document.text "MP: #{registry_number}", align: :center
     end

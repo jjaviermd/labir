@@ -4,7 +4,7 @@
     <%= turbo_frame_tag @pathologist do %>
       <table class="table">
         <tr>
-          <th>Surename</th>
+          <th>Surname</th>
           <td><%= @pathologist.last_name.titleize %></td>
           <th>Name</th>
           <td><%= @pathologist.name.titleize %></td>
@@ -19,6 +19,9 @@
           <th>Total cases</th>
           <td><%= @pathologist.cases.count %></td>
         </tr>
+        <td>
+          <%= image_tag @pathologist.sign.variant(resize_to_limit: [100, 100]) if @pathologist.sign.attached? %>
+        </td>
       </table>
       <%= link_to 'Edit pathologist info', edit_pathologist_path, class: 'control button is-info' %>
     <% end %>
