@@ -6,24 +6,25 @@ class CasesController < ApplicationController
 
   def index
     @cases = case params[:scope]
-             when 'protocol_number'
-               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                                 .where('protocol_number LIKE ?', "%#{params[:query]}%")
-             when 'dni'
-               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                                 .where('patients.dni LIKE ?', "%#{params[:query]}%")
-             when 'patient_last_name'
-               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                                 .where('patients.f_last_name LIKE ?', "%#{params[:query]}%")
-             when 'pathologist_last_name'
-               current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
-                                 .where('last_name LIKE ?', "%#{params[:query]}%")
-             else
-               current_laboratory.cases.ordered.includes(:patient, :pathologist).all
-             end
+    when "protocol_number"
+      current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+        .where("protocol_number LIKE ?", "%#{params[:query]}%")
+    when "dni"
+      current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+        .where("patients.dni LIKE ?", "%#{params[:query]}%")
+    when "patient_last_name"
+      current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+        .where("patients.f_last_name LIKE ?", "%#{params[:query]}%")
+    when "pathologist_last_name"
+      current_laboratory.cases.joins(:patient, :pathologist).ordered.includes(:patient, :pathologist)
+        .where("last_name LIKE ?", "%#{params[:query]}%")
+    else
+      current_laboratory.cases.ordered.includes(:patient, :pathologist).all
+    end
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @patient = current_laboratory.patients.find params[:patient_id]
@@ -38,7 +39,7 @@ class CasesController < ApplicationController
       flash[:success] =
         "#{@patient.full_name}`s new case created. Protocol number: #{@case.protocol_number}."
     else
-      flash.now[:danger] = 'Something went wrong and case was not created.'
+      flash.now[:danger] = "Something went wrong and case was not created."
       render :new, status: :unprocessable_entity
     end
   end
@@ -56,7 +57,7 @@ class CasesController < ApplicationController
         format.turbo_stream { flash.now[:success] = "Case number #{@case.protocol_number} updated." }
       end
     else
-      flash.now[:danger] = 'Something went wrong!, case was not updated.'
+      flash.now[:danger] = "Something went wrong!, case was not updated."
       render :edit, status: :unprocessable_entity
     end
   end
@@ -74,9 +75,9 @@ class CasesController < ApplicationController
     @case.description_text(pdf)
     @pathologist.sign_report(pdf)
     send_data(pdf.render, filename:
-                            "#{@case.protocol_number}_#{@patient.full_name.split(' ').map(&:downcase).join('_')}.pdf",
-                          type: 'application/pdf',
-                          disposition: 'inline')
+                            "#{@case.protocol_number}_#{@patient.full_name.split(" ").map(&:downcase).join("_")}.pdf",
+      type: "application/pdf",
+      disposition: "inline")
   end
 
   private
@@ -94,7 +95,7 @@ class CasesController < ApplicationController
 
   def case_params
     params.require(:case).permit(:patient_id, :pathologist_id, :status, :macro_description,
-                                 :micro_description, :diagnosis, :organ, :physician, :speciality, :protocol_number,
-                                 :notes, :type_of_sample)
+      :micro_description, :diagnosis, :organ, :physician, :speciality, :protocol_number,
+      :notes, :type_of_sample)
   end
 end

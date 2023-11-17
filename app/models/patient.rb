@@ -7,17 +7,17 @@ class Patient < ApplicationRecord
   belongs_to :laboratory
   accepts_nested_attributes_for :cases
   enum :gender, male: 1, female: 2
-  validates :dni, presence: true, uniqueness: { scope: :laboratory, message: 'Protocol number already in use' }
+  validates :dni, presence: true, uniqueness: {scope: :laboratory, message: "Protocol number already in use"}
   validates :f_last_name, :name, presence: true
-  validates :gender, inclusion: { in: %w[male female] }
-  validates :birth_day, comparison: { less_than_or_equal_to: Date.today }
+  validates :gender, inclusion: {in: %w[male female]}
+  validates :birth_day, comparison: {less_than_or_equal_to: Date.today}
   before_save :calculate_age
   before_save do
-    self.f_last_name = f_last_name.downcase
-    self.l_last_name = l_last_name.downcase if l_last_name?
-    self.name = name.downcase
-    self.email = email.downcase if email?
-    self.insurance = insurance.downcase if insurance?
+    f_last_name.downcase!
+    l_last_name.downcase! if l_last_name?
+    name.downcase!
+    email.downcase! if email?
+    insurance.downcase! if insurance?
   end
 
   def full_name
@@ -27,10 +27,10 @@ class Patient < ApplicationRecord
 
   def table_data
     [
-      ['Patient name:', full_name.to_s, 'Patient DNI:', dni.to_s],
-      ['Date of birth:', birth_day.to_s, 'Age:', "#{age} Years old"],
-      ['Sex:', gender.capitalize.to_s, 'Insurance:', insurance.capitalize.to_s],
-      ['Phone Number:', phone_number.to_s, 'E-mail:', email.to_s]
+      ["Patient name:", full_name.to_s, "Patient DNI:", dni.to_s],
+      ["Date of birth:", birth_day.to_s, "Age:", "#{age} Years old"],
+      ["Sex:", gender.capitalize.to_s, "Insurance:", insurance.capitalize.to_s],
+      ["Phone Number:", phone_number.to_s, "E-mail:", email.to_s]
     ]
   end
 

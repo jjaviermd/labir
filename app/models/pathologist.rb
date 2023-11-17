@@ -9,8 +9,8 @@ class Pathologist < ApplicationRecord
   validates :name, :last_name, presence: true
   has_one_attached :sign
   before_save do
-    self.last_name = last_name.downcase
-    self.name = name.downcase
+    last_name.downcase!
+    name.downcase!
   end
 
   def full_name
