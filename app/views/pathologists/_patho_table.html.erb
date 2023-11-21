@@ -1,18 +1,20 @@
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Registry Number</th>
-    <th>Pending cases</th>
-    <th>Diagnosed cases</th>
-    <th>Total cases</th>
-  </tr>
-  <% pathologists.each do |pathologist| %>
+<div class="table-container">
+  <table class="table">
     <tr>
-      <td><%= link_to pathologist.full_name, pathologist_path(pathologist), data: {turbo_frame: "_top"} %> </td>
-      <td><%= pathologist.registry_number %></td>
-      <td><%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist), data: {turbo_frame: "_top"} %></td>
-      <td><%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist), data: {turbo_frame: "_top"} %></td>
-      <td><%= pathologist.cases_count %></td>
+      <th>Name</th>
+      <th>Registry Number</th>
+      <th>Pending cases</th>
+      <th>Diagnosed cases</th>
+      <th>Total cases</th>
     </tr>
-  <% end %>
-</table>
+    <% pathologists.each do |pathologist| %>
+      <tr>
+        <td><%= link_to pathologist.full_name, pathologist_path(pathologist), data: {turbo_frame: "_top"} %> </td>
+        <td><%= pathologist.registry_number %></td>
+        <td><%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist), data: {turbo_frame: "_top"} %></td>
+        <td><%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist), data: {turbo_frame: "_top"} %></td>
+        <td><%= pathologist.cases_count %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

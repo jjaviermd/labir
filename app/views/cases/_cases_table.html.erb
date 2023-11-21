@@ -1,37 +1,39 @@
-<table class="table">
-  <% if cases.any? %>
-    <thead>
-      <tr>
-        <th>Protocol number</th>
-        <th>DNI number</th>
-        <th>Patient name</th>
-        <th>Pathologist name</th>
-        <th>Type of sample</th>
-        <th>Case status</th>
-        <th>Case notes</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% cases.each do |c| %>
+<div class="table-container">
+  <table class="table">
+    <% if cases.any? %>
+      <thead>
         <tr>
-          <th><%= c.protocol_number %></th>
-          <td><%= c.patient.dni %></td>
-          <td><%= link_to c.patient.full_name, patient_path(c.patient), data:{turbo_frame: '_top'} %></td>
-          <td><%= link_to c.pathologist.full_name, pathologist_path(c.pathologist), data:{turbo_frame: '_top'} %></td>
-          <td><%= c.type_of_sample.capitalize %></td>
-          <td><%= c.status_sjc %></td>
-          <td><%= c.notes %></td>
-          <td class ="field is-grouped">
-            <%= link_to "Show", case_path(c), class: 'control button is-success', data:{turbo_frame: '_top'} %>
-            <%= link_to "Edit", edit_case_path(c), class: 'control button is-info', data:{turbo_frame: '_top'} %>
-          </td>
+          <th>Protocol number</th>
+          <th>DNI number</th>
+          <th>Patient name</th>
+          <th>Pathologist name</th>
+          <th>Type of sample</th>
+          <th>Case status</th>
+          <th>Case notes</th>
+          <th>Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <div class= "column is-narrow has-text-centered">
-    No cases found!
-  </div>
-<% end %>
+      </thead>
+      <tbody>
+        <% cases.each do |c| %>
+          <tr>
+            <th><%= c.protocol_number %></th>
+            <td><%= c.patient.dni %></td>
+            <td><%= link_to c.patient.full_name, patient_path(c.patient), data:{turbo_frame: '_top'} %></td>
+            <td><%= link_to c.pathologist.full_name, pathologist_path(c.pathologist), data:{turbo_frame: '_top'} %></td>
+            <td><%= c.type_of_sample.capitalize %></td>
+            <td><%= c.status_sjc %></td>
+            <td><%= c.notes %></td>
+            <td class ="field is-grouped">
+              <%= link_to "Show", case_path(c), class: 'control button is-success', data:{turbo_frame: '_top'} %>
+              <%= link_to "Edit", edit_case_path(c), class: 'control button is-info', data:{turbo_frame: '_top'} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class= "column is-narrow has-text-centered">
+      No cases found!
+    </div>
+  <% end %>
+</div>

@@ -1,44 +1,48 @@
 <section>
-  <table class= 'table'>
-    <tr>
-      <th>Pathologist</th>
-      <td><%= link_to my_case.pathologist.full_name, pathologist_path(my_case.pathologist) %></td>
-    </tr>
-    <tr>
-      <th>Protocol Number</th>
-      <td><%= my_case.protocol_number %></td>
-      <th>Status</th>
-      <td><%= my_case.status_sjc %></td>
-    </tr>
-    <tr>
-      <th>Organ</th>
-      <td><%= my_case.organ.capitalize %></td>
-      <th>Sample</th>
-      <td><%= my_case.type_of_sample.capitalize %></td>
-    </tr>
-    <tr>
-      <th>Physician</th>
-      <td><%= my_case.physician.capitalize %></td>
-      <th>Speciality</th>
-      <td><%= my_case.speciality.capitalize %></td>
-    </tr>
-  </table>
+  <div class="table-container">
+    <table class= 'table'>
+      <tr>
+        <th>Pathologist</th>
+        <td><%= link_to my_case.pathologist.full_name, pathologist_path(my_case.pathologist) %></td>
+      </tr>
+      <tr>
+        <th>Protocol Number</th>
+        <td><%= my_case.protocol_number %></td>
+        <th>Status</th>
+        <td><%= my_case.status_sjc %></td>
+      </tr>
+      <tr>
+        <th>Organ</th>
+        <td><%= my_case.organ.capitalize %></td>
+        <th>Sample</th>
+        <td><%= my_case.type_of_sample.capitalize %></td>
+      </tr>
+      <tr>
+        <th>Physician</th>
+        <td><%= my_case.physician.capitalize %></td>
+        <th>Speciality</th>
+        <td><%= my_case.speciality.capitalize %></td>
+      </tr>
+    </table>
+  </div>
 </section>
 <section>
-  <table class = 'table'>
-    <tr>
-      <th>Gross description</th>
-      <td><%= my_case.macro_description %></td>
-      <th>Microscopic description</th>
-      <td><%= my_case.micro_description %></td>
-    </tr>
-    <tr>
-      <th>Diagnosis</th>
-      <td><%= my_case.diagnosis %></td>
-      <th>Notes</th>
-      <td><%= my_case.notes %></td>
-    </tr>
-  </table>
+  <div class="table-container">
+    <table class = 'table'>
+      <tr>
+        <th>Gross description</th>
+        <td><%= my_case.macro_description %></td>
+        <th>Microscopic description</th>
+        <td><%= my_case.micro_description %></td>
+      </tr>
+      <tr>
+        <th>Diagnosis</th>
+        <td><%= my_case.diagnosis %></td>
+        <th>Notes</th>
+        <td><%= my_case.notes %></td>
+      </tr>
+    </table>
+  </div>
 </section>
 <div class="field is-grouped">
   <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>

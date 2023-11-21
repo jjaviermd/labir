@@ -16,8 +16,8 @@ class Laboratory < ApplicationRecord
   end
 
   def lab_header(document = pdf)
-    document.text(name.to_s, align: :center, size: 16)
-    document.text("#{address} #{email}", align: :center, size: 12)
+    document.text(name.to_s.titleize, align: :center, size: 16)
+    document.text("#{address.capitalize} #{email}", align: :center, size: 12)
     document.move_down 10
   end
 end
