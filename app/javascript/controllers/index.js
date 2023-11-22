@@ -6,3 +6,7 @@ import { application } from "./application"
 
 import HamburguerController from "./hamburguer_controller"
 application.register("hamburguer", HamburguerController)
+
+
+import Notification from 'stimulus-notification'
+Stimulus.register('notification', Notification)
