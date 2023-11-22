@@ -1,7 +1,7 @@
-<div class="container is-fluid mt-4">
+<div class="container is-fluid">
   <div class="columns">
-    <div class="column is-one-quarter is-flex is-flex-direction-column is-justify-content-start mt-6">
-      <div class="has-text-left">
+    <div class="column is-box is-one-quarter is-flex is-flex-direction-column is-justify-content-start mt-5">
+      <div class="box has-text-left">
         <p>Initialize new case</p>
         <div class="patient_form">
           <%= form_with url: patients_url, method: :get do |f| %>
@@ -16,7 +16,7 @@
           <% end %>
         </div>
       </div>
-      <div class="has-text-left">
+      <div class="box has-text-left">
         <p>Search cases by protocol, DNI, Surname or pathologist</p>
         <%= form_with url: cases_url, method: :get do |form| %>
           <div class="field has-addons">
@@ -35,7 +35,7 @@
         <% end %>
       </div>
     </div>
-    <div class="column">
+    <div class="column box container mt-5">
       <% if @cases.any? %>
         <%= turbo_frame_tag 'cases' do %>
           <h1 class= "title has-text-centered" >Recent cases</h2>

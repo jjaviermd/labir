@@ -15,6 +15,7 @@
       <%= render 'layouts/flash' %>
     </div>
     <%= yield %>
+    <br>
     <%= debug params if Rails.env.development?%>
     <%# debug current_laboratory.attributes_before_type_cast if laboratory_signed_in? %>
   </body>
