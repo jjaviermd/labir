@@ -5,6 +5,7 @@
       <%# <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> %>
       <h1 class= 'is-size-4 has-text-weight-bold has-background-primary-light has-text-warning-dark' >LabiR</h1>
     </a>
+    <%= content_tag :p, current_laboratory.name.titleize, class: 'navbar-item' if laboratory_signed_in? %>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-action= "hamburguer#expand" data-hamburguer-target="burguer">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -13,7 +14,6 @@
   </div>
   <div class="navbar-menu" data-hamburguer-target = "link">
     <div class="navbar-start">
-      <%= content_tag :p, current_laboratory.name, class: 'navbar-item' if laboratory_signed_in? %>
       <%= link_to 'Home', root_path, class: 'navbar-item is-primary' %>
       <%= link_to 'Patients', patients_path, class: 'navbar-item' %>
       <%= link_to 'Pathologists',pathologists_path, class: 'navbar-item' %>
