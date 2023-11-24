@@ -1,2 +1,20 @@
 <h1>Templates#new</h1>
 <p>Find me in app/views/templates/new.html.erb</p>
+<%= form_with model: @template do |t_f| %>
+  <div class= 'field'>
+    <%= t_f.label :prefix, 'Prefix' %>
+    <%= t_f.text_field :prefix, class: 'input' %>
+  </div>
+  <div class= 'field'>
+    <%= t_f.label :name %>
+    <%= t_f.text_field :name, class: 'input' %>
+  </div>
+  <div class= 'field'>
+    <%= t_f.text :text %>
+    <%= t_f.text_field :text, class:'input' %>
+  </div>
+  <div class='field is-grouped' >
+    <%= pa_f.submit 'Acept and save', class: 'control button is-success', data:{turbo_frame: "_top"} %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
+  </div>
+<% end %>
