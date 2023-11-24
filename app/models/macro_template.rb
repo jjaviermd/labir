@@ -1,0 +1,2 @@
+class MacroTemplate < Template
+end

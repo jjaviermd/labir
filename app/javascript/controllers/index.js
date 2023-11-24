@@ -4,9 +4,11 @@
 
 import { application } from "./application"
 
+import AutocompleteController from "./autocomplete_controller"
+application.register("autocomplete", AutocompleteController)
+
 import HamburguerController from "./hamburguer_controller"
 application.register("hamburguer", HamburguerController)
-
 
 import Notification from 'stimulus-notification'
 Stimulus.register('notification', Notification)

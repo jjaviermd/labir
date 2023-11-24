@@ -1,0 +1,2 @@
+class DiagnosisTemplate < Template
+end

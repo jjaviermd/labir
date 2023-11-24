@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_12_160530) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_24_133658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -114,10 +114,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_12_160530) do
     t.index ["name"], name: "index_patients_on_name"
   end
 
+  create_table "templates", force: :cascade do |t|
+    t.bigint "laboratory_id", null: false
+    t.string "type"
+    t.string "prefix"
+    t.string "name"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["laboratory_id", "type", "prefix"], name: "index_templates_on_laboratory_id_and_type_and_prefix", unique: true
+    t.index ["laboratory_id"], name: "index_templates_on_laboratory_id"
+    t.index ["prefix"], name: "index_templates_on_prefix"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cases", "pathologists"
   add_foreign_key "cases", "patients"
   add_foreign_key "pathologists", "laboratories"
   add_foreign_key "patients", "laboratories"
+  add_foreign_key "templates", "laboratories"
 end
