@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   resources :templates, only: [:index, :show, :destroy]
   resources :macro_templates, except: [:index, :show, :destroy]
   resources :micro_templates, except: [:index, :show, :destroy]
+  resources :diagnosis_templates, except: [:index, :show, :destroy]
+
   root "pages#home"
 end
