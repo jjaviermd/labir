@@ -7,6 +7,10 @@ class Laboratory < ApplicationRecord
   has_many :patients
   has_many :cases, through: :pathologists
   has_many :cases, through: :patients
+  has_many :templates
+  has_many :macro_templates
+  has_many :micro_templates
+  has_many :diagnosis_templates
   validates :name, :address, :phone_number, :account, presence: true
   validates :name, :account, uniqueness: true
   before_save do

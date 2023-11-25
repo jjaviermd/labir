@@ -1,4 +1,5 @@
-<%= form_with model: @template do |t_f| %>
+<%= form_with model: template do |t_f| %>
+  <!--
   <div class= "field">
     <%= t_f.label :type, 'Type of template' %>
     <div class="control">
@@ -7,6 +8,7 @@
       </div>
     </div>
   </div>
+ -->
   <div class= 'field'>
     <%= t_f.label :prefix, 'Prefix' %>
     <%= t_f.text_field :prefix, class: 'input' %>

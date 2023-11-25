@@ -1,2 +1,10 @@
 <h1>Templates#index</h1>
 <p>Find me in app/views/templates/index.html.erb</p>
+<% @templates.each do |template| %>
+  <div>
+    <h1><%= template.name %></h1>
+    <h2><%= template.prefix %></h2>
+    <p><%= template.text %></p>
+    <%= link_to "Edit", edit_macro_template_path(template)  %>
+  </div>
+<% end %>
