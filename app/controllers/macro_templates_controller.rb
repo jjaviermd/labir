@@ -1,7 +1,7 @@
 class MacroTemplatesController < ApplicationController
-  def new
-    @template = current_laboratory.macro_templates.build
-  end
+  # def new
+  #   @template = current_laboratory.macro_templates.build
+  # end
 
   def create
     @template = current_laboratory.macro_templates.build template_params
@@ -15,9 +15,9 @@ class MacroTemplatesController < ApplicationController
     end
   end
 
-  def edit
-    @template = current_laboratory.templates.find params[:id]
-  end
+  # def edit
+  #   @template = current_laboratory.templates.find params[:id]
+  # end
 
   def update
     @template = current_laboratory.macro_templates.find params[:id]

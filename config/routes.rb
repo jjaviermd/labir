@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home"
   get "/about", to: "pages#about"
   get "/settings", to: "pages#settings"
-  resources :templates, only: [:index, :show, :destroy]
-  resources :macro_templates, except: [:index, :show, :destroy]
-  resources :micro_templates, except: [:index, :show, :destroy]
-  resources :diagnosis_templates, except: [:index, :show, :destroy]
+  resources :templates, only: [:index, :show, :edit, :new, :destroy]
+  resources :macro_templates, except: [:index, :edit, :new, :show, :destroy]
+  resources :micro_templates, except: [:index, :edit, :new, :show, :destroy]
+  resources :diagnosis_templates, except: [:index, :edit, :new, :show, :destroy]
 
   root "pages#home"
 end
