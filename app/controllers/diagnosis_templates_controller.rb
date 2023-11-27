@@ -7,7 +7,7 @@ class DiagnosisTemplatesController < ApplicationController
       flash[:success] = "#{@template.name} template  created."
     else
       flash.now[:danger] = "#{@template.name} template not created."
-      render :new, status: :unprocessable_entity
+      render "templates/new", status: :unprocessable_entity
     end
   end
 
@@ -18,7 +18,7 @@ class DiagnosisTemplatesController < ApplicationController
       flash[:success] = "#{@template.name} template updated"
     else
       flash.now[:danger] = "#{@template.name} template not updated"
-      render :edit, status: :unprocessable_entity
+      render "templates/edit", status: :unprocessable_entity
     end
   end
 

@@ -9,19 +9,9 @@
       </ul>
     </div>
   <% end %>
-  <!--
-  <div class= "field">
-    <%= t_f.label :type, 'Type of template' %>
-    <div class="control">
-      <div class="select">
-        <%= t_f.select :type,["macro", "micro", "diagnosis"] %>
-      </div>
-    </div>
-  </div>
- -->
   <div class= 'field'>
     <%= t_f.label :prefix, 'Prefix' %>
-    <%= t_f.text_field :prefix, class: 'input' %>
+    <%= t_f.text_field :prefix, maxlength: 9, placeholder: "Max 9 chars", class: 'input' %>
   </div>
   <div class= 'field'>
     <%= t_f.label :name %>
