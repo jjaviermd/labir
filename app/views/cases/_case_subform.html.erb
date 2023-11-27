@@ -44,19 +44,19 @@
     </div>
   </div>
 </fieldset>
-<fieldset>
+<fieldset data-controller="autocomplete">
   <legend class="mt-4">Analitic Data</legend>
   <div class = "field">
     <%= c_f.label :macro_description %>
-    <%= c_f.text_area :macro_description, class:"textarea" %>
+    <%= c_f.text_area :macro_description, data:{action: "blur->autocomplete#autocomplete"}, class:"textarea" %>
   </div>
   <div class = "field">
     <%= c_f.label :micro_description %>
-    <%= c_f.text_area :micro_description, class:"textarea" %>
+    <%= c_f.text_area :micro_description, data:{action: "blur->autocomplete#autocomplete"}, class:"textarea" %>
   </div>
   <div class = "field">
     <%= c_f.label :diagnosis, 'Diagnosis' %>
-    <%= c_f.text_area :diagnosis, class:"textarea" %>
+    <%= c_f.text_area :diagnosis, data:{action: "blur->autocomplete#autocomplete"}, class:"textarea" %>
   </div>
   <div class = "field">
     <%= c_f.label :notes %>

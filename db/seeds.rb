@@ -9,4 +9,4 @@ Pathologist.delete_all
 puts "\n== Pathologists deleted =="
 puts "\n== data deleted =="
 puts "\n== Seeding the database with fixtures =="
-system('bin/rails db:fixtures:load')
+system("bin/rails db:fixtures:load")

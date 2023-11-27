@@ -1,4 +1,12 @@
 class DiagnosisTemplatesController < ApplicationController
+  def index
+    @templates = current_laboratory.diagnosis_templates.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @templates }
+    end
+  end
+
   def create
     @template = current_laboratory.diagnosis_templates.build template_params
 
