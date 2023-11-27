@@ -1,8 +1,4 @@
 class MicroTemplatesController < ApplicationController
-  def new
-    @template = current_laboratory.micro_templates.build
-  end
-
   def create
     @template = current_laboratory.micro_templates.build template_params
 
@@ -13,10 +9,6 @@ class MicroTemplatesController < ApplicationController
       flash.now[:danger] = "#{@template.name} template not created."
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @template = current_laboratory.templates.find params[:id]
   end
 
   def update

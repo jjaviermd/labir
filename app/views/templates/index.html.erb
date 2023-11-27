@@ -1,5 +1,4 @@
-<h1>Templates#index</h1>
-<p>Find me in app/views/templates/index.html.erb</p>
+<h1>Templates</h1>
 <% @templates.each do |template| %>
   <div>
     <h1><%= template.name %></h1>
@@ -17,12 +16,12 @@
     <%= f.label :template_type, 'Template type' %>
     <div class="control">
       <div class="select">
-        <%= f.select :template_type,[["macro", "macro_template"], ["micro", "micro_template"], ["diagnosis", "diagnosis_template"]] %>
+        <%= f.select :template_type,[["Gross description", "macro_template"], ["Microscopic description", "micro_template"], ["Diagnosis Template", "diagnosis_template"]] %>
       </div>
     </div>
   </div>
   <div class='field is-grouped' >
     <%= f.submit "New Template", class: 'control button is-success', data:{turbo_frame: "_top"} %>
-    <%# link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
   </div>
 <% end %>
