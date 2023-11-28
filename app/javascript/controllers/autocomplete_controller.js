@@ -11,15 +11,13 @@ export default class extends Controller {
       case "case_macro_description":
         url = "/macro_templates.json"
         break;
-
       case "case_micro_description":
         url = "/micro_templates.json"
         break;
-
       case "case_diagnosis":
         url = "/diagnosis_templates.json"
     }
-    console.log(prefix, url, target_id);
+    // console.log(prefix, url, target_id);
     fetch(url)
       .then((response) => response.json())
       .then((templates) => e.target.value = templates.find((template) => template.prefix === prefix).text);
