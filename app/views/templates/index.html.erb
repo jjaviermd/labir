@@ -1,16 +1,119 @@
-<h1>Templates</h1>
-<% @templates.each do |template| %>
-  <div>
-    <h1><%= template.name %></h1>
-    <h2><%= template.prefix %></h2>
-    <p><%= template.text %></p>
-    <%= link_to "Edit", edit_template_path(template)  %>
-    <%= link_to "Delete", template_path(template), data: {
+<!--
+<div class="container">
+  <h1>Templates</h1>
+  <div class="tabs is-toggle is-centered">
+    <ul>
+      <li class="is-active">
+        <a>
+          <span>All templates</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span>Gross templates</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span>Histologic templates</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span>Diagnosis templates</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <table class="table is-bordered is-striped is-narrow is-hoverable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Prefix</th>
+        <th>Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @templates.each do |template| %>
+        <tr>
+          <td><%= template.name %> <br>
+            <%= link_to "Edit", edit_template_path(template)  %>
+            <%= link_to "Delete", template_path(template), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
-    } %>
-  </div>
-<% end %>
+    } %></td>
+          <td><%= template.prefix %></td>
+          <td><%= template.text %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+-->
+<div class="container mt-4">
+  <article class="panel is-primary">
+    <p class="panel-heading">
+      Templates
+    </p>
+    <p class="panel-tabs">
+      <div class="tabs is-toggle is-centered box">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>All templates</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Gross templates</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Histologic templates</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Diagnosis templates</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </p>
+    <div class="panel-block">
+      <p class="control has-icons-left">
+        <input class="input is-primary" type="text" placeholder="Search">
+        <span class="icon is-left">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </span>
+      </p>
+    </div>
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Prefix</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @templates.each do |template| %>
+          <tr>
+            <td><%= template.name %> <br>
+              <%= link_to "Edit", edit_template_path(template)  %>
+              <%= link_to "Delete", template_path(template), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+    } %></td>
+            <td><%= template.prefix %></td>
+            <td><%= template.text %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </article>
+</div>
 <%= form_with url: new_template_url, method: :get  do |f| %>
   <div class= "field">
     <%= f.label :template_type, 'Template type' %>
