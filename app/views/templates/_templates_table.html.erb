@@ -1,0 +1,23 @@
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Prefix</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= template.name %> <br>
+          <%= link_to "Edit", edit_template_path(template)  %>
+          <%= link_to "Delete", template_path(template), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+    } %></td>
+        <td><%= template.prefix %></td>
+        <td><%= template.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
