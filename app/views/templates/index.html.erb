@@ -1,73 +1,21 @@
-<!--
-<div class="container">
-  <h1>Templates</h1>
-  <div class="tabs is-toggle is-centered">
-    <ul>
-      <li class="is-active">
-        <a>
-          <span>All templates</span>
-        </a>
-      </li>
-      <li>
-        <a>
-          <span>Gross templates</span>
-        </a>
-      </li>
-      <li>
-        <a>
-          <span>Histologic templates</span>
-        </a>
-      </li>
-      <li>
-        <a>
-          <span>Diagnosis templates</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <table class="table is-bordered is-striped is-narrow is-hoverable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Prefix</th>
-        <th>Text</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @templates.each do |template| %>
-        <tr>
-          <td><%= template.name %> <br>
-            <%= link_to "Edit", edit_template_path(template)  %>
-            <%= link_to "Delete", template_path(template), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-    } %></td>
-          <td><%= template.prefix %></td>
-          <td><%= template.text %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
--->
 <div class="container mt-4">
   <article class="panel is-primary">
     <p class="panel-heading">
       Templates
     </p>
     <p class="panel-tabs">
-      <div class="tabs is-toggle is-centered box">
-        <ul>
-          <li class="is-active">
+      <div class="tabs is-toggle is-centered box" >
+        <ul data-controller="hamburguer">
+          <li class="is-active" data-action='click->hamburguer#toggle'>
             <%= link_to "All templates", templates_path, data: {turbo_frame: "templates"}  %>
           </li>
-          <li>
+          <li data-action='click->hamburguer#toggle'>
             <%= link_to "Gross templates", macro_templates_path, data: {turbo_frame: "templates"}  %>
           </li>
-          <li>
+          <li class="" data-action='click->hamburguer#toggle'>
             <%= link_to "Histologic templates", micro_templates_path, data: {turbo_frame: "templates"}  %>
           </li>
-          <li>
+          <li class="" data-action='click->hamburguer#toggle'>
             <%= link_to "Diagnosis templates", diagnosis_templates_path, data: {turbo_frame: "templates"}  %>
           </li>
         </ul>

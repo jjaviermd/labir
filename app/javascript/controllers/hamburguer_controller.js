@@ -7,4 +7,10 @@ export default class extends Controller {
     this.burguerTarget.classList.toggle('is-active');
     this.linkTarget.classList.toggle('is-active')
   }
+
+  toggle(event) {
+    const selected = document.querySelector(".is-active")
+    selected.classList.toggle("is-active")
+    event.target.parentNode.classList.toggle("is-active")
+  }
 }
