@@ -1,2 +1,4 @@
 <h1>Edit template</h1>
-<%= render "templates/template_form", template: @template %>
+<%= turbo_frame_tag @template do %>
+  <%= render "templates/template_form", template: @template %>
+<% end %>

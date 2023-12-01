@@ -12,8 +12,8 @@
         <td><%= template.name %> <br>
           <%= link_to "Edit", edit_template_path(template)  %>
           <%= link_to "Delete", template_path(template), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
     } %></td>
         <td><%= template.prefix %></td>
         <td><%= template.text %></td>
