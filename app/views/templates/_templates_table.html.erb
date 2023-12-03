@@ -1,23 +1,41 @@
-<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Prefix</th>
-      <th>Text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @templates.each do |template| %>
-      <tr>
-        <td><%= template.name %> <br>
-          <%= link_to "Edit", edit_template_path(template)  %>
-          <%= link_to "Delete", template_path(template), data: {
+<nav class="level is-mobile pt-3">
+  <div class="level-left pl-5">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Name</p>
+      </div>
+    </div>
+  </div>
+  <div class="level-right pr-5">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Prefix</p>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--
+-->
+<% @templates.each do |template| %>
+  <%= turbo_frame_tag "id" do%>
+    <article class="message is-success">
+      <div class="message-header">
+        <%= tag.p template.name %>
+        <%= tag.p template.prefix %>
+      </div>
+      <div class="message-body">
+        <%= tag.p template.text %>
+        <div class="field is-grouped mt-1">
+          <div class="control">
+            <%= link_to "Edit", edit_template_path(template), class: "button" %>
+          </div>
+          <div class="control">
+            <%= link_to "Delete", template_path(template), class: "button", data: {
             turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-    } %></td>
-        <td><%= template.prefix %></td>
-        <td><%= template.text %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            turbo_confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
+    </article>
+  <% end %>
+<% end %>

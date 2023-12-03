@@ -34,17 +34,21 @@
     <% end %>
   </article>
 </div>
-<%= form_with url: new_template_url, method: :get  do |f| %>
-  <div class= "field">
-    <%= f.label :template_type, 'Template type' %>
-    <div class="control">
-      <div class="select">
-        <%= f.select :template_type,[["Gross description", "macro_template"], ["Microscopic description", "micro_template"], ["Diagnosis Template", "diagnosis_template"]] %>
+<div class="container mt-4">
+  <%= turbo_frame_tag "new_template"%>
+</div>
+<div class="container mt-4">
+  <%= form_with url: new_template_url, method: :get  do |f| %>
+    <div class= "field">
+      <div class="control">
+        <div class="select">
+          <%= f.select :template_type,[["Gross description", "macro_template"], ["Microscopic description", "micro_template"], ["Diagnosis Template", "diagnosis_template"]] %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class='field is-grouped' >
-    <%= f.submit "New Template", class: 'control button is-success', data:{turbo_frame: "_top"} %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
-  </div>
-<% end %>
+    <div class='field is-grouped' >
+      <%= f.submit "New Template", class: 'control button is-success', data:{turbo_frame: "new_template"} %>
+      <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button' %>
+    </div>
+  <% end %>
+</div>

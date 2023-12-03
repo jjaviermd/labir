@@ -1,2 +1,4 @@
 <h1>Create new template</h1>
-<%= render "templates/template_form", template: @template %>
+<%= turbo_frame_tag "new_template" do %>
+  <%= render "templates/template_form", template: @template %>
+<% end %>
