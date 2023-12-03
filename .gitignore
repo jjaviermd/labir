@@ -38,3 +38,6 @@
 # Ignore db schema and migration directory
 # /db/migrate/*
 # /db/schema.rb
+
+# Ignore .vscode
+/.vscode

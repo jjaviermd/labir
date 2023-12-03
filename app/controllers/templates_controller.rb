@@ -14,7 +14,7 @@ class TemplatesController < ApplicationController
     @template = current_laboratory.macro_templates.find params[:id]
     respond_to do |format|
       format.html # index.html.erb
-      format.xml { render xml: @template }
+      # format.xml { render xml: @template }
       format.json { render json: @template }
     end
   end

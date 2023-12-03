@@ -9,16 +9,18 @@
       </ul>
     </div>
   <% end %>
-  <div class= 'field'>
-    <%= t_f.label :prefix, 'Prefix' %>
-    <%= t_f.text_field :prefix, maxlength: 10, placeholder: "Max 10 characters", class: 'input' %>
+  <div class="field is-grouped">
+    <div class= 'field control is-horizontal'>
+      <%= t_f.label :prefix, class: "field-label" %>
+      <%= t_f.text_field :prefix, maxlength: 10, placeholder: "Max 10 characters", class: 'input' %>
+    </div>
+    <div class= 'field control is-horizontal'>
+      <%= t_f.label :name, class: "field-label" %>
+      <%= t_f.text_field :name, class: 'input' %>
+    </div>
   </div>
   <div class= 'field'>
-    <%= t_f.label :name %>
-    <%= t_f.text_field :name, class: 'input' %>
-  </div>
-  <div class= 'field'>
-    <%= t_f.label :text %>
+    <%= t_f.label :text, class: "field-label" %>
     <%= t_f.text_area :text, class:'textarea' %>
   </div>
   <div class='field is-grouped' >

@@ -18,7 +18,7 @@
 -->
 <% @templates.each do |template| %>
   <%= turbo_frame_tag template do%>
-    <article class="message is-success">
+    <article class="message is-light">
       <div class="message-header">
         <%= tag.p template.name %>
         <%= tag.p template.prefix %>
