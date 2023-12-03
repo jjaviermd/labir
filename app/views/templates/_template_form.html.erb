@@ -12,7 +12,7 @@
   <div class="field is-grouped">
     <div class= 'field control is-horizontal'>
       <%= t_f.label :prefix, class: "field-label" %>
-      <%= t_f.text_field :prefix, maxlength: 10, placeholder: "Max 10 characters", class: 'input' %>
+      <%= t_f.text_field :prefix, maxlength: 10, placeholder: "10 chars max", class: 'input' %>
     </div>
     <div class= 'field control is-horizontal'>
       <%= t_f.label :name, class: "field-label" %>
@@ -20,8 +20,8 @@
     </div>
   </div>
   <div class= 'field'>
-    <%= t_f.label :text, class: "field-label" %>
-    <%= t_f.text_area :text, class:'textarea' %>
+    <%# t_f.label :text, class: "field-label" %>
+    <%= t_f.text_area :text, class:'textarea', placeholder: "Text" %>
   </div>
   <div class='field is-grouped' >
     <%= t_f.submit 'Acept and save', class: 'control button is-success', data:{turbo_frame: "_top"} %>
