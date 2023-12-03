@@ -17,7 +17,7 @@
 <!--
 -->
 <% @templates.each do |template| %>
-  <%= turbo_frame_tag "id" do%>
+  <%= turbo_frame_tag template do%>
     <article class="message is-success">
       <div class="message-header">
         <%= tag.p template.name %>
