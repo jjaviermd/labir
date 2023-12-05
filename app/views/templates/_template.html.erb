@@ -1,0 +1,21 @@
+<%= turbo_frame_tag template do%>
+  <article class="message is-light">
+    <div class="message-header">
+      <%= tag.p template.name %>
+      <%= tag.p template.prefix %>
+    </div>
+    <div class="message-body">
+      <%= tag.p template.text %>
+      <div class="field is-grouped mt-1">
+        <div class="control">
+          <%= link_to "Edit", edit_template_path(template), class: "button" %>
+        </div>
+        <div class="control">
+          <%= link_to "Delete", template_path(template), class: "button", data: {
+          turbo_method: :delete,
+            turbo_confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+  </article>
+<% end %>

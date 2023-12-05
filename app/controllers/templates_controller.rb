@@ -36,9 +36,11 @@ class TemplatesController < ApplicationController
 
   def destroy
     @template = current_laboratory.templates.find params[:id]
-    if @template.delete
-      redirect_to templates_path
-      flash[:success] = "#{@template.name} template deleted"
+    if @template.destroy
+      respond_to do |format|
+        format.html { redirect_to templates_path, success: "#{@template.name} template deleted" }
+        format.turbo_stream { flash.now[:success] = "#{@template.name} template deleted" }
+      end
     else
       flash.now[:danger] = "#{@template.name} template not deleted"
     end

@@ -29,6 +29,22 @@
         </span>
       </p>
     </div>
+    <nav class="level is-mobile pt-3">
+      <div class="level-left pl-5">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Name</p>
+          </div>
+        </div>
+      </div>
+      <div class="level-right pr-5">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Prefix</p>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= turbo_frame_tag "templates" do %>
       <%= render "templates/templates_table" %>
     <% end %>

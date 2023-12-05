@@ -9,10 +9,11 @@ class MicroTemplatesController < ApplicationController
 
   def create
     @template = current_laboratory.micro_templates.build template_params
-
     if @template.save
-      redirect_to templates_path
-      flash[:success] = "#{@template.name} template  created."
+      respond_to do |format|
+        format.html { redirect_to templates_path, success: "#{@template.name} template  created." }
+        format.turbo_stream { flash.now[:success] = "#{@template.name} template  created." }
+      end
     else
       flash.now[:danger] = "#{@template.name} template not created."
       render "templates/new", status: :unprocessable_entity
