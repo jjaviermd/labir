@@ -23,8 +23,10 @@ class MicroTemplatesController < ApplicationController
   def update
     @template = current_laboratory.micro_templates.find params[:id]
     if @template.update template_params
-      redirect_to templates_path
-      flash[:success] = "#{@template.name} template updated"
+      respond_to do |format|
+        format.html { redirect_to templates_path, success: "#{@template.name} template updated" }
+        format.turbo_stream { flash.now[:success] = "#{@template.name} template updated" }
+      end
     else
       flash.now[:danger] = "#{@template.name} template not updated"
       render "templates/edit", status: :unprocessable_entity

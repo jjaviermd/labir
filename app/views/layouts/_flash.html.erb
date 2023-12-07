@@ -1,33 +1,14 @@
-<% flash.each do |name, message| %>
-  <%= tag.div class:("message notification is-#{name} is-light is-small transition transform duration-1000 hidden"), data:
+<%= turbo_frame_tag "flash" do %>
+  <% flash.each do |name, message| %>
+    <%= tag.div class:("message notification is-#{name} is-light is-small transition transform duration-1000 hidden"), data:
               {controller:"notification", notification_delay_value:"2000", transition_enter_from:"opacity-0 translate-x-6",transition_enter_to:"opacity-100 translate-x-0", transition_leave_from:"opacity-100 translate-x-0", transition_leave_to:"opacity-0 translate-x-6"} do %>
-    <div class="message-header">
-      <p><%= name.capitalize %></p>
-      <button class="delete" aria-label="delete" data-action="notification#hide"></button>
-    </div>
-    <div class="message-body">
-      <%= message %>
-    </div>
+      <div class="message-header">
+        <p><%= name.capitalize %></p>
+        <button class="delete" aria-label="delete" data-action="notification#hide"></button>
+      </div>
+      <div class="message-body">
+        <%= message %>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
-<!--
-<% flash.each do |name, message| %>
-  <article
-  data-controller="notification"
-  data-notification-delay-value="2000"
-  class="message is-#{name} transition transform duration-1000 hidden"
-  data-transition-enter-from="opacity-0 translate-x-6"
-  data-transition-enter-to="opacity-100 translate-x-0"
-  data-transition-leave-from="opacity-100 translate-x-0"
-  data-transition-leave-to="opacity-0 translate-x-6">
-    <div class="message-header">
-      <p><%= name.capitalize %></p>
-      <button class="delete" aria-label="delete" data-action="notification#hide"></button>
-    </div>
-    <div class="message-body">
-      <%= name.class %>
-      <%= message %>
-    </div>
-  </article>
-<% end %>
--->

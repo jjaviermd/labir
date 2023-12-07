@@ -11,9 +11,7 @@
   </head>
   <body>
     <%= render 'layouts/nav_bar' %>
-    <%= turbo_frame_tag "flash" do %>
-      <%= render 'layouts/flash' %>
-    <% end %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
     <br>
     <%= debug params if Rails.env.development?%>
