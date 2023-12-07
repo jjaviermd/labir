@@ -1,2 +1,3 @@
 <%= turbo_stream.update "new_template", "" %>
 <%= turbo_stream.prepend "templates", partial: "templates/template", locals: {template: @template} %>
+<%= turbo_stream.replace "flash", partial: "layouts/flash" %>
