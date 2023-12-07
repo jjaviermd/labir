@@ -1,3 +1,65 @@
+<div class="container mt-4">
+  <nav class="panel">
+    <p class="panel-heading">
+      Pathologists
+    </p>
+    <% @pathologists.each do |pathologist| %>
+      <nav class="level mt-2">
+        <div class="level-left">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Name</p>
+              <%= tag.p class:"subtitle" do %>
+                <%= link_to pathologist.full_name, pathologist_path(pathologist), data: {turbo_frame: "_top"} %>
+              <% end %>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Registry number</p>
+              <%= tag.p class:"subtitle" do %>
+                <%= pathologist.registry_number %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">All cases</p>
+              <%= tag.p class:"subtitle" do %>
+                <%= pathologist.cases_count %>
+              <% end %>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Pending cases</p>
+              <%= tag.p class:"subtitle" do %>
+                <%= link_to pathologist.cases.not_diagnosed.count, pending_path(pathologist), data: {turbo_frame: "pathologist_#{pathologist.id}"} %>
+              <% end %>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Diagnosed Cases</p>
+              <%= tag.p class:"subtitle" do %>
+                <%= link_to pathologist.cases.diagnosed.count, finished_path(pathologist), data: {turbo_frame: "pathologist_#{pathologist.id}"} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <%= turbo_frame_tag pathologist %>
+    <% end %>
+  </nav>
+  <div class='is-grouped'>
+    <%= link_to "New Pathologist", new_pathologist_path, class: 'button is-success', data:{turbo_frame: dom_id(Pathologist.new)}  %>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button', data: {turbo_frame: "_top"} %>
+  </div>
+  <%= turbo_frame_tag dom_id(Pathologist.new) %>
+</div>
+<!--
 <div class="container is-fluid mt-4">
   <h1 class='title'>Pathologists</h1>
   <%= turbo_frame_tag "patho" do%>
@@ -9,3 +71,4 @@
   </div>
   <%= turbo_frame_tag dom_id(Pathologist.new) %>
 </div>
+-->
