@@ -96,6 +96,6 @@ class CasesController < ApplicationController
   def case_params
     params.require(:case).permit(:patient_id, :pathologist_id, :status, :macro_description,
       :micro_description, :diagnosis, :organ, :physician, :speciality, :protocol_number,
-      :notes, :type_of_sample)
+      :notes, :type_of_sample, :comment)
   end
 end

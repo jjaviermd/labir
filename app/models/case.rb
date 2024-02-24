@@ -26,6 +26,7 @@ class Case < ApplicationRecord
     micro_description.downcase! if micro_description?
     diagnosis.downcase! if diagnosis?
     notes.downcase! if notes?
+    comment.downcase! if comment?
   end
   # delegate laboratory method
   delegate :laboratory, to: :patient
@@ -40,13 +41,18 @@ class Case < ApplicationRecord
 
   def description_text(document = pdf)
     document.text "Macroscopic description:", style: :bold
-    document.text macro_description
+    document.text macro_description.capitalize
     document.move_down 10
     document.text "Microscopic description:", style: :bold
-    document.text micro_description
+    document.text micro_description.capitalize
     document.move_down 10
     document.text "Diagnosis", style: :bold
-    document.text diagnosis
+    document.text diagnosis.capitalize
+    if comment?
+      document.move_down 10
+      document.text "Comments", style: :bold
+      document.text comment.capitalize
+    end
   end
 
   def status_sjc

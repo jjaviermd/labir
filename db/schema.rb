@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_24_133658) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_24_143640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_24_133658) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "type_of_sample"
+    t.text "comment"
     t.index ["pathologist_id"], name: "index_cases_on_pathologist_id"
     t.index ["patient_id"], name: "index_cases_on_patient_id"
     t.index ["protocol_number"], name: "index_cases_on_protocol_number"
