@@ -31,19 +31,19 @@
     <table class = 'table'>
       <tr>
         <th>Gross description</th>
-        <td><%= my_case.macro_description.capitalize %></td>
+        <td><%= my_case.macro_description&.capitalize %></td>
         <th>Microscopic description</th>
-        <td><%= my_case.micro_description.capitalize %></td>
+        <td><%= my_case.micro_description&.capitalize %></td>
       </tr>
       <tr>
         <th>Diagnosis</th>
-        <td><%= my_case.diagnosis.capitalize %></td>
+        <td><%= my_case.diagnosis&.capitalize %></td>
         <th>Notes</th>
-        <td><%= my_case.notes.capitalize %></td>
+        <td><%= my_case.notes&.capitalize %></td>
       </tr>
       <tr>
         <th>Comments</th>
-        <td><%= my_case.comment.capitalize %></td>
+        <td><%= my_case.comment&.capitalize %></td>
       </tr>
     </table>
   </div>

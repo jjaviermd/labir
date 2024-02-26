@@ -41,17 +41,17 @@ class Case < ApplicationRecord
 
   def description_text(document = pdf)
     document.text "Macroscopic description:", style: :bold
-    document.text macro_description.capitalize
+    document.text macro_description&.capitalize
     document.move_down 10
     document.text "Microscopic description:", style: :bold
-    document.text micro_description.capitalize
+    document.text micro_description&.capitalize
     document.move_down 10
     document.text "Diagnosis", style: :bold
-    document.text diagnosis.capitalize
+    document.text diagnosis&.capitalize
     if comment?
       document.move_down 10
       document.text "Comments", style: :bold
-      document.text comment.capitalize
+      document.text comment&.capitalize
     end
   end
 
