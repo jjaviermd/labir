@@ -2,7 +2,7 @@
 
 class CasesController < ApplicationController
   before_action :set_case, only: %i[show edit update]
-  before_action :set_case_patient_pathologist, only: :sign_inform
+  before_action :set_case_patient_pathologist, only: [:sign_inform, :send_report]
 
   def index
     @cases = case params[:scope]
@@ -79,6 +79,10 @@ class CasesController < ApplicationController
                             "#{@case.protocol_number}_#{@patient.full_name.split(" ").map(&:downcase).join("_")}.pdf",
       type: "application/pdf",
       disposition: "inline")
+  end
+
+  def send_report
+    PatientMailer.with(case: @case, patient: @patient, pathologist: @pathologist, laboratory: @laboratory).send_report.deliver_now
   end
 
   private

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :patients, except: :destroy
   resources :cases, except: :destroy do
     get "sign_inform", on: :member
+    get "send_report", on: :member
   end
   resources :pathologists
   get "/pathologists/:id/pending", to: "pathologists#pending", as: "pending"
