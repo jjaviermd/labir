@@ -82,7 +82,10 @@ class CasesController < ApplicationController
   end
 
   def send_report
-    PatientMailer.with(case: @case, patient: @patient, pathologist: @pathologist, laboratory: @laboratory).send_report.deliver_now
+    PatientMailer.with(case: @case, patient: @patient, pathologist: @pathologist, laboratory: @laboratory).send_pdf_report.deliver_now
+    redirect_to case_path(@case)
+    flash[:success] =
+      "An email has been send to #{@patient.full_name} with the report of case #{@case.protocol_number}."
   end
 
   private
