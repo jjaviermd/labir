@@ -7,6 +7,7 @@
       <fieldset>
         <%= c_f.hidden_field :patient_id, value: params[:patient_id] %>
         <%= render 'case_subform', c_f: c_f %>
+        <br>
         <div class="field is-grouped">
           <%= c_f.submit 'Acept and save', class: 'control button is-success' %>
           <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class:'control button is-warning', data:{turbo_frame: '_top'} %>
