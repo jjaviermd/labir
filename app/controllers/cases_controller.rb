@@ -38,7 +38,7 @@ class CasesController < ApplicationController
       redirect_to case_path(@case)
       flash[:success] =
         "#{@patient.full_name}`s new case created. Protocol number: #{@case.protocol_number}."
-      PatientMailer.with(case: @case, patient: @patient).sample_received_email.deliver_now
+      PatientMailer.with(case: @case, patient: @patient).sample_received_email.deliver_now if @patient.email?
     else
       flash.now[:danger] = "Something went wrong and case was not created."
       render :new, status: :unprocessable_entity
