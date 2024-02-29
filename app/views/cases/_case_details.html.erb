@@ -52,7 +52,7 @@
   <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
   <%= link_to 'Preview report', sign_inform_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top'} %>
   <div data-controller="tooltips">
-    <%= link_to 'Send report', send_report_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top', action:"mouseover->tooltips#sendReportTooltip" }, :title => "must have an email AND/OR case must be diagnosed", :disabled => !(@case.patient.email? && @case.diagnosed?) %>
+    <%= link_to 'Send report', send_report_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top', action:"mouseover->tooltips#sendReportTooltip" }, :title => "Patient must have e-mail AND/OR case must be diagnosed", :disabled => !(@case.patient.email? && @case.diagnosed?) %>
     <span data-tooltips-target="tooltipText"  class="is-hidden">Must have an email AND/OR case must be diagnosed!</span>
   </div>
 </div>
