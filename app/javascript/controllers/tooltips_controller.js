@@ -10,7 +10,7 @@ export default class extends Controller {
     const isButtonDisabled = !!this.tooltipTextTarget.previousElementSibling.getAttribute("disabled")
     if (isButtonDisabled) {
       this.tooltipTextTarget.classList.toggle("is-hidden")
-      window.setTimeout(() => { this.tooltipTextTarget.classList.toggle("is-hidden") }, 1500)
+      // window.setTimeout(() => { this.tooltipTextTarget.classList.toggle("is-hidden") }, 1500)
     }
   }
 }
