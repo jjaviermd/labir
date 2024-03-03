@@ -50,5 +50,13 @@
 </section>
 <div class="field is-grouped">
   <%= link_to 'Resume case', edit_case_path(@case), class: 'control button is-success' %>
-  <%= link_to 'Finish and Sign', sign_inform_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top'} %>
+  <%= link_to 'Preview report', sign_inform_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top'} %>
+  <div data-controller="tooltips">
+    <%= link_to 'Send report', send_report_case_path(@case), class: 'control button is-info', data:{turbo_frame: '_top', action:"mouseenter->tooltips#sendReportTooltip mouseleave->tooltips#sendReportTooltip" }, :title => "Patient must have e-mail AND/OR case must be diagnosed", :disabled => !(@case.patient.email? && @case.diagnosed?) %>
+    <article class="message is-danger is-hidden is-small is-inline-block" data-tooltips-target="tooltipText">
+      <div class="message-body">
+        Patient must have an <strong>e-mail</strong> AND/OR case must be <strong>diagnosed!</strong>
+      </div>
+    </article>
+  </div>
 </div>

@@ -1,0 +1,15 @@
+<html lang="en">
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear, <%= @patient.full_name %></h1>
+    <p>
+      The analysis of your sample has been finished and is avaible for downloading. <br>
+      Chek the attachement file in this mail to do so. <br>
+      We seguest yo deliver the current report to your physician (Dr <%= @case.physician&.titleize %>) as soon as posible to continue best course of action.<br>
+    </p>
+    <p>Thanks for trusting a valuable part of you in our care!</p>
+    <p>Have a wonderfull day</p>
+  </body>
+</html>

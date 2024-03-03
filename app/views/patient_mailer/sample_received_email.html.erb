@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear, <%= @patient.full_name %></h1>
+    <p>
+      We have successfully received your sample at our laboartory. <br>
+      These are important details you need to know: <br>
+      The protocol number of you case is: <%= @case.protocol_number.to_s %>.<br>
+      The Profesional in charge of your case is <%= @case.pathologist.full_name %><br>
+    </p>
+    <p>
+      You will receive an email with your report (as a PDF attach file) as soon as it is avaible. <br>
+      The estimated time is between 15 and 45 days.
+    </p>
+    <p>Thanks for trusting a valuable part of you in our care!</p>
+    <p>Have a wonderfull day</p>
+  </body>
+</html>

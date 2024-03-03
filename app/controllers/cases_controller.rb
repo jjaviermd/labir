@@ -2,7 +2,7 @@
 
 class CasesController < ApplicationController
   before_action :set_case, only: %i[show edit update]
-  before_action :set_case_patient_pathologist, only: :sign_inform
+  before_action :set_case_patient_pathologist, only: [:sign_inform, :send_report]
 
   def index
     @cases = case params[:scope]
@@ -38,6 +38,7 @@ class CasesController < ApplicationController
       redirect_to case_path(@case)
       flash[:success] =
         "#{@patient.full_name}`s new case created. Protocol number: #{@case.protocol_number}."
+      PatientMailer.with(case: @case, patient: @patient).sample_received_email.deliver_later if @patient.email?
     else
       flash.now[:danger] = "Something went wrong and case was not created."
       render :new, status: :unprocessable_entity
@@ -78,6 +79,13 @@ class CasesController < ApplicationController
                             "#{@case.protocol_number}_#{@patient.full_name.split(" ").map(&:downcase).join("_")}.pdf",
       type: "application/pdf",
       disposition: "inline")
+  end
+
+  def send_report
+    PatientMailer.with(case: @case, patient: @patient, pathologist: @pathologist, laboratory: @laboratory).send_pdf_report.deliver_later
+    redirect_to case_path(@case)
+    flash[:success] =
+      "An email has been send to #{@patient.full_name} with the report of case #{@case.protocol_number}."
   end
 
   private

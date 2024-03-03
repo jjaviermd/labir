@@ -61,6 +61,7 @@ class Case < ApplicationRecord
 
   def set_status
     self.status = "histotechnology" if macro_description? && !micro_description? && !diagnosis?
+    self.status = "histotechnology" if macro_description? && micro_description? && !diagnosis?
     self.status = "diagnosed" if macro_description? && micro_description? && diagnosis?
   end
 end

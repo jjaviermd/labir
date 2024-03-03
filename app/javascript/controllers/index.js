@@ -12,3 +12,6 @@ application.register("hamburguer", HamburguerController)
 
 import Notification from 'stimulus-notification'
 Stimulus.register('notification', Notification)
+
+import TooltipsController from "./tooltips_controller"
+application.register("tooltips", TooltipsController)
