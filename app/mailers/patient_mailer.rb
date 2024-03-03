@@ -3,7 +3,7 @@ class PatientMailer < ApplicationMailer
     @case = params[:case]
     @patient = params[:patient]
 
-    mail(to: @patient.email, subject: "Sample received")
+    mail(to: @patient.email, subject: "Pathologic Sample received")
   end
 
   def send_pdf_report
@@ -23,6 +23,6 @@ class PatientMailer < ApplicationMailer
 
     attachments[file_name] = File.read file_name
 
-    mail(to: @patient.email, subject: "Report")
+    mail(to: @patient.email, subject: "Pathologic Report")
   end
 end
