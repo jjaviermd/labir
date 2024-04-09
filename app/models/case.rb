@@ -19,7 +19,7 @@ class Case < ApplicationRecord
   scope :ordered, -> { order(updated_at: :desc) }
   before_save :set_status
   before_save do
-    organ.downcase
+    organ.downcase!
     physician.downcase! if physician?
     speciality.downcase! if speciality?
     macro_description.downcase! if macro_description?

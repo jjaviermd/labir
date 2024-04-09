@@ -39,6 +39,6 @@ class Patient < ApplicationRecord
   def calculate_age
     calculated_age = Date.today.year - birth_day.year
     calculated_age -= 1 if Date.today < birth_day + calculated_age.years
-    self.age = calculated_age
+    self.age ||= calculated_age
   end
 end
