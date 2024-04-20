@@ -54,7 +54,6 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
-
 # Create PDF documents
 gem "prawn", "~> 2.2", ">= 2.2.2"
 # Create tables in PDF dicuments
