@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   resources :micro_templates, only: [:index, :update, :create]
   resources :diagnosis_templates, only: [:index, :update, :create]
 
-  root "pages#home"
+  root "pages#welcome"
 end
