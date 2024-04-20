@@ -2,6 +2,10 @@
 
 # Class pathologist represent the medic professional in charge of biopsy.
 class Pathologist < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   # Pathologist.find_each {|p| Pathologist.reset_counters(p.id, :cases)}
 
   has_many :cases
