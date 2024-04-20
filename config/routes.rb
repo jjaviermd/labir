@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :pathologists
+  devise_for :pathologists, controllers: {
+    sessions: "pathologists/sessions"
+  }
   devise_for :laboratories, controllers: {
     sessions: "laboratories/sessions",
     registrations: "laboratories/registrations"
