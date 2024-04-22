@@ -1,8 +1,8 @@
-<h2>Log in</h2>
+<h2>Log Lab in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :account  %><br />
-    <%= f.text_field :account, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email  %><br />
+    <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
     <%= f.label :password %><br />

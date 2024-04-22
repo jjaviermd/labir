@@ -1,2 +1,16 @@
 <h1>Pages#welcome</h1>
 <p>Find me in app/views/pages/welcome.html.erb</p>
+<% if pathologist_signed_in? %>
+  <%# link_to 'Sign Path Out', destroy_pathologist_session_path, method: :delete  %>
+  <%= button_to 'Sign Out', destroy_pathologist_session_path, method: :delete, class: 'navbar-item'  %>
+<% elsif !laboratory_signed_in? %>
+  <%= link_to 'Sign Path In', new_pathologist_session_path , class: 'button' %>
+<% end %>
+<% if laboratory_signed_in? %>
+  <%# link_to 'Sign Lab Out', destroy_laboratory_session_path, method: :delete  %>
+  <%= button_to "Sign out",
+                  destroy_laboratory_session_path,
+                  method: :delete, class: 'navbar-item' %>
+<% elsif !pathologist_signed_in?%>
+  <%= link_to 'Sign Lab in', new_laboratory_session_path, class: 'button'  %>
+<% end %>
