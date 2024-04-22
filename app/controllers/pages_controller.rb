@@ -2,6 +2,7 @@
 
 # Class PagesController for home, about and setings
 class PagesController < ApplicationController
+  skip_before_action :authenticate_client!, only: [:welcome, :about]
 
   def welcome
 
