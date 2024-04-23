@@ -4,11 +4,20 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: %i[edit update]
 
   def index
-    @patient = current_laboratory.patients.find_by(dni: params[:patient_search])
+    if laboratory_signed_in?
+      @patient = current_laboratory.patients.find_by(dni: params[:patient_search])
+    elsif pathologist_signed_in?
+      @patient = current_pathologist.laboratory.patients.find_by(dni: params[:patient_search])
+
+    end
   end
 
   def show
-    @patient = current_laboratory.patients.includes(cases: :pathologist).find params[:id]
+    if laboratory_signed_in?
+      @patient = current_laboratory.patients.includes(cases: :pathologist).find params[:id]
+    elsif pathologist_signed_in?
+      @patient = current_pathologist.laboratory.patients.includes(cases: :pathologist).find params[:id]
+    end
   end
 
   def new
@@ -17,7 +26,11 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = current_laboratory.patients.build(patient_params)
+    if laboratory_signed_in?
+      @patient = current_laboratory.patients.build(patient_params)
+    elsif pathologist_signed_in?
+      @patient = current_pathologist.laboratory.patients.build(patient_params)
+    end
     if @patient.save
       redirect_to patient_path(@patient)
       flash[:success] =
@@ -53,6 +66,10 @@ class PatientsController < ApplicationController
   end
 
   def set_patient
-    @patient = current_laboratory.patients.find params[:id]
+    if laboratory_signed_in?
+      @patient = current_laboratory.patients.find params[:id]
+    elsif pathologist_signed_in?
+      @patient = current_pathology.laboratory.patients.find params[:id]
+    end
   end
 end

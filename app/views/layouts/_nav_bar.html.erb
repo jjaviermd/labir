@@ -7,6 +7,8 @@
     <%# </a> %>
     <%= link_to 'Welcome', root_path %>
     <%= content_tag :p, current_laboratory.name.titleize, class: 'navbar-item' if laboratory_signed_in? %>
+    <%= content_tag :p, current_pathologist.laboratory.name, class: 'navbar-item' if pathologist_signed_in? %>
+    <%= content_tag :p, current_pathologist.full_name, class: 'navbar-item' if pathologist_signed_in? %>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-action= "hamburguer#expand" data-hamburguer-target="burguer">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>

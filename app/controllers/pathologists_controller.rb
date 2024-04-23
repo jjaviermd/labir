@@ -2,12 +2,22 @@
 
 class PathologistsController < ApplicationController
   before_action :set_pathologist, only: %i[edit update destroy pending finished]
+
   def index
-    @pathologists = current_laboratory.pathologists.all
+    if laboratory_signed_in?
+      @pathologists = current_laboratory.pathologists.all
+    elsif pathologist_signed_in?
+      @pathologists = current_pathologist.laboratory.pathologists.all
+    end
   end
 
   def show
-    @pathologist = current_laboratory.pathologists.includes(cases: :patient).find(params[:id])
+    if laboratory_signed_in?
+      @pathologist = current_laboratory.pathologists.includes(cases: :patient).find(params[:id])
+    elsif pathologist_signed_in?
+      @pathologist = current_pathologist.laboratory.pathologists.includes(cases: :patient).find(params[:id])
+
+    end
     @pending_cases = @pathologist.cases.not_diagnosed
     @finished_cases = @pathologist.cases.diagnosed
   end
@@ -17,7 +27,11 @@ class PathologistsController < ApplicationController
   end
 
   def create
-    @pathologist = current_laboratory.pathologists.build(pathologist_params)
+    if laboratory_signed_in?
+      @pathologist = current_laboratory.pathologists.build(pathologist_params)
+    elsif pathologist_signed_in?
+      @pathologist = current_pathologist.laboratory.pathologists.build(pathologist_params)
+    end
     if @pathologist.save
       respond_to do |format|
         format.html { redirect_to pathologist_path(@pathologist), success: "#{@pathologist.full_name} profile created" }
@@ -61,6 +75,11 @@ class PathologistsController < ApplicationController
   end
 
   def set_pathologist
-    @pathologist = current_laboratory.pathologists.find params[:id]
+    if laboratory_signed_in?
+      @pathologist = current_laboratory.pathologists.find params[:id]
+    elsif pathologist_signed_in?
+      @pathologist = current_pathologist.laboratory.pathologists.find params[:id]
+
+    end
   end
 end

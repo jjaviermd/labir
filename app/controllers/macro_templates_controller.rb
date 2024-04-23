@@ -1,6 +1,10 @@
 class MacroTemplatesController < ApplicationController
   def index
-    @templates = current_laboratory.macro_templates.all
+    if laboratory_signed_in?
+      @templates = current_laboratory.macro_templates.all
+    elsif pathologist_signed_in?
+      @templates = current_pathologist.laboratory.macro_templates.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @templates }
@@ -8,7 +12,11 @@ class MacroTemplatesController < ApplicationController
   end
 
   def create
-    @template = current_laboratory.macro_templates.build template_params
+    if laboratory_signed_in?
+      @template = current_laboratory.macro_templates.build template_params
+    elsif pathologist_signed_in?
+      @template = current_pathologist.laboratory.macro_templates.build template_params
+    end
     if @template.save
       respond_to do |format|
         format.html { redirect_to templates_path, success: "#{@template.name} template  created." }
@@ -21,7 +29,11 @@ class MacroTemplatesController < ApplicationController
   end
 
   def update
-    @template = current_laboratory.macro_templates.find params[:id]
+    if laboratory_signed_in?
+      @template = current_laboratory.macro_templates.find params[:id]
+    elsif pathologist_signed_in?
+      @template = current_pathologist.laboratory.macro_templates.find params[:id]
+    end
     if @template.update template_params
       respond_to do |format|
         format.html { redirect_to templates_path, success: "#{@template.name} template updated" }
