@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :pathologists
   devise_for :pathologists, controllers: {
     sessions: "pathologists/sessions"
   }
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
     get "sign_inform", on: :member
     get "send_report", on: :member
   end
-  resources :pathologists
   get "/pathologists/:id/pending", to: "pathologists#pending", as: "pending"
   get "/pathologists/:id/finished", to: "pathologists#finished", as: "finished"
   get "/home", to: "pages#home"

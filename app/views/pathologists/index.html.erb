@@ -54,8 +54,8 @@
     <% end %>
   </nav>
   <div class='is-grouped'>
-    <%= link_to "New Pathologist", new_pathologist_path, class: 'button is-success', data:{turbo_frame: dom_id(Pathologist.new)}  %>
-    <%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: 'control button', data: {turbo_frame: "_top"} %>
+    <%= link_to "New Pathologist", new_pathologist_path, class: 'button is-success', data:{turbo_frame: dom_id(Pathologist.new)}  if laboratory_signed_in?%>
+    <%= link_to 'Cancel', request.referer.present? ? request.referer : home_path, class: 'control button', data: {turbo_frame: "_top"} %>
   </div>
   <%= turbo_frame_tag dom_id(Pathologist.new) %>
 </div>
