@@ -44,6 +44,10 @@ class PathologistsController < ApplicationController
   end
 
   def edit
+    if pathologist_signed_in? && @pathologist.id != current_pathologist.id
+      redirect_to pathologists_path
+      flash[:danger] = "You can only edit your own profile"
+    end
   end
 
   def update

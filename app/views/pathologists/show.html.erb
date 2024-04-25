@@ -25,7 +25,9 @@
           </td>
         </table>
       </div>
-      <%= link_to 'Edit pathologist info', edit_pathologist_path, class: 'control button is-info' %>
+      <% if (pathologist_signed_in? && @pathologist.id == current_pathologist.id) || laboratory_signed_in?%>
+        <%= link_to 'Edit pathologist info', edit_pathologist_path, class: 'control button is-info' %>
+      <% end %>
     <% end %>
   </div>
   <br>
