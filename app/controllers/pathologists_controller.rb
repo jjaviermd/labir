@@ -23,6 +23,10 @@ class PathologistsController < ApplicationController
   end
 
   def new
+    unless laboratory_signed_in?
+      redirect_to pathologists_path
+      flash[:danger] = "You need to log in as a Laboratory to create a new Pathologist"
+    end
     @pathologist = Pathologist.new
   end
 
