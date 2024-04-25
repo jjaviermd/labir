@@ -1,9 +1,16 @@
 class TemplatesController < ApplicationController
   def index
-    @templates = current_laboratory.templates.all
-    @macro_templates = current_laboratory.macro_templates.all
-    @micro_templates = current_laboratory.micro_templates.all
-    @diagnosis_templates = current_laboratory.diagnosis_templates.all
+    if laboratory_signed_in?
+      @templates = current_laboratory.templates.all
+      @macro_templates = current_laboratory.macro_templates.all
+      @micro_templates = current_laboratory.micro_templates.all
+      @diagnosis_templates = current_laboratory.diagnosis_templates.all
+    elsif pathologist_signed_in?
+      @templates = current_pathologist.laboratory.templates.all
+      @macro_templates = current_pathologist.laboratory.macro_templates.all
+      @micro_templates = current_pathologist.laboratory.micro_templates.all
+      @diagnosis_templates = current_pathologist.laboratory.diagnosis_templates.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @templates }

@@ -87,7 +87,6 @@ class PathologistsController < ApplicationController
       @pathologist = current_laboratory.pathologists.find params[:id]
     elsif pathologist_signed_in?
       @pathologist = current_pathologist.laboratory.pathologists.find params[:id]
-
     end
   end
 end
