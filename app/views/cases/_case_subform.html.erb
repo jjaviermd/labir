@@ -1,13 +1,24 @@
 <fieldset>
-  <legend>Case Data</legend>
-  <div class= "field">
-    <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
-    <div class="control">
-      <div class="select">
-        <%= c_f.collection_select :pathologist_id, current_laboratory.pathologists.order(:last_name), :id, :full_name %>
+  <legend>Case Data</legend> <br>
+  <% if  laboratory_signed_in?%>
+    <div class= "field">
+      <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
+      <div class="control">
+        <div class="select">
+          <%= c_f.collection_select :pathologist_id, current_laboratory.pathologists.order(:last_name), :id, :full_name %>
+        </div>
       </div>
     </div>
-  </div>
+  <% elsif pathologist_signed_in?%>
+    <div class= "is-hidden">
+      <%= c_f.label :pathologist_id, 'Patholgist in charge' %>
+      <div>
+        <div class="select">
+          <%= c_f.collection_select :pathologist_id, current_pathologist.laboratory.pathologists.order(:last_name), :id, :full_name %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <div class = "field">
     <%= c_f.label :protocol_number, 'Protocol Number' %>
     <%= c_f.text_field :protocol_number, class:"input" %>
