@@ -6,6 +6,7 @@ ariel:
   registry_number: '123456'
   laboratory: arpe
   email: ariel@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(Pathologist, 'password') %>
 
 candela:
   last_name: 'paredes'
@@ -13,6 +14,7 @@ candela:
   registry_number: '456789'
   laboratory: arpe
   email: candela@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(Pathologist, 'password') %>
 
 rafa:
   last_name: 'Penarrieta'
@@ -20,6 +22,8 @@ rafa:
   registry_number: '654321'
   laboratory: arpe
   email: rafa@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(Pathologist, 'password') %>
+  activity: inactive
 
 falcon:
   last_name: 'falcon'
@@ -27,3 +31,4 @@ falcon:
   registry_number: '789123'
   laboratory: arylab
   email: falcon@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(Pathologist, 'password') %>
