@@ -5,21 +5,25 @@ ariel:
   name: 'ariel'
   registry_number: '123456'
   laboratory: arpe
+  email: ariel@mail.com
 
 candela:
   last_name: 'paredes'
   name: 'camdela'
   registry_number: '456789'
   laboratory: arpe
+  email: candela@mail.com
 
 rafa:
   last_name: 'Penarrieta'
   name: 'rafaela'
   registry_number: '654321'
   laboratory: arpe
+  email: rafa@mail.com
 
 falcon:
   last_name: 'falcon'
   name: 'marcelo'
   registry_number: '789123'
   laboratory: arylab
+  email: falcon@mail.com

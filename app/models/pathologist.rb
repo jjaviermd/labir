@@ -7,7 +7,7 @@ class Pathologist < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # Pathologist.find_each {|p| Pathologist.reset_counters(p.id, :cases)}
-
+  enum  activity: [:active, :inactive], _prefix: :is
   has_many :cases
   belongs_to :laboratory
   validates :name, :last_name, presence: true
