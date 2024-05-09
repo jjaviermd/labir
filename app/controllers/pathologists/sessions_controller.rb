@@ -6,7 +6,7 @@ class Pathologists::SessionsController < Devise::SessionsController
   private
   def authenticate_activity
     if current_pathologist.is_inactive?
-      flash[:danger] = "Your account is currently inactive, please contact your laborarory administrator to change yous activity status"
+      flash[:inactive_pathologist] = ""
       sign_out current_pathologist
     end
   end
