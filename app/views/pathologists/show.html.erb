@@ -25,8 +25,11 @@
           </td>
         </table>
       </div>
-      <% if (pathologist_signed_in? && @pathologist.id == current_pathologist.id) || laboratory_signed_in?%>
+      <% if laboratory_signed_in?%>
         <%= link_to 'Edit pathologist info', edit_pathologist_path, class: 'control button is-info' %>
+      <% end %>
+      <% if (pathologist_signed_in? && @pathologist.id == current_pathologist.id) || laboratory_signed_in?%>
+        <%= link_to 'Change password', change_password_path, class: 'control button is-info', data: {turbo_frame: '_top'} %>
       <% end %>
     <% end %>
   </div>
